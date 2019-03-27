@@ -15,12 +15,13 @@ class CreatePagamentoTable extends Migration {
 		Schema::create('pagamento', function(Blueprint $table)
 		{
 			$table->integer('idpagamento', true);
-			$table->string('numero_cartao');
-			$table->string('validade');
-			$table->string('cvv');
+			$table->string('numero_cartao', 191);
+			$table->string('validade', 191);
+			$table->string('cvv', 191);
 			$table->string('titular', 100);
 			$table->string('cpf', 45);
 			$table->string('bandeira', 45);
+			$table->timestamps();
 		});
 	}
 
@@ -32,7 +33,7 @@ class CreatePagamentoTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('pagamento');
+		Schema::dropIfExists('pagamento');
 	}
 
 }

@@ -14,8 +14,8 @@ class AddForeignKeysToCarroTable extends Migration {
 	{
 		Schema::table('carro', function(Blueprint $table)
 		{
-			$table->foreign('categoria_idcategoria', 'fk_carro_categoria1')->references('idcategoria')->on('categoria')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-			$table->foreign('marca_idmarca', 'fk_carro_marca1')->references('idmarca')->on('marca')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+			$table->foreign('categoria_idcategoria')->references('idcategoria')->on('categoria')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+			$table->foreign('marca_idmarca')->references('idmarca')->on('marca')->onUpdate('NO ACTION')->onDelete('NO ACTION');
 		});
 	}
 
@@ -29,8 +29,8 @@ class AddForeignKeysToCarroTable extends Migration {
 	{
 		Schema::table('carro', function(Blueprint $table)
 		{
-			$table->dropForeign('fk_carro_categoria1');
-			$table->dropForeign('fk_carro_marca1');
+			$table->dropForeign('categoria_idcategoria');
+			$table->dropForeign('marca_idmarca');
 		});
 	}
 

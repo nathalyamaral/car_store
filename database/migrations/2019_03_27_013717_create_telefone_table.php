@@ -15,7 +15,8 @@ class CreateTelefoneTable extends Migration {
 		Schema::create('telefone', function(Blueprint $table)
 		{
 			$table->integer('idtelefone', true);
-			$table->string('numero', 20)->nullable();
+			$table->string('numero', 20);
+			$table->timestamps();
 		});
 	}
 
@@ -27,7 +28,7 @@ class CreateTelefoneTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('telefone');
+		Schema::dropIfExists('telefone');
 	}
 
 }

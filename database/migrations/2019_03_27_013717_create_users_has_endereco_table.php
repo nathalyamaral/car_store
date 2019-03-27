@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateUsuarioTable extends Migration {
+class CreateUsersHasEnderecoTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,11 @@ class CreateUsuarioTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('usuario', function(Blueprint $table)
+		Schema::create('users_has_endereco', function(Blueprint $table)
 		{
-			$table->string('cpf', 20)->primary();
-			$table->string('nome', 100);
-			$table->string('email')->unique('email_UNIQUE');
-			$table->string('senha');
+			$table->string('users_cpf', 20);
+			$table->integer('endereco_idendereco');
+			$table->timestamps();
 		});
 	}
 
@@ -29,7 +28,7 @@ class CreateUsuarioTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('usuario');
+		Schema::dropIfExists('users_has_endereco');
 	}
 
 }

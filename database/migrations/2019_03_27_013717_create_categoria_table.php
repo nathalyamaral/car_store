@@ -17,6 +17,7 @@ class CreateCategoriaTable extends Migration {
 			$table->integer('idcategoria', true);
 			$table->string('nome', 45);
 			$table->string('descricao', 45)->nullable();
+			$table->timestamps();
 		});
 	}
 
@@ -28,7 +29,7 @@ class CreateCategoriaTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('categoria');
+		Schema::dropIfExists('categoria');
 	}
 
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateCarroHasImagemTable extends Migration {
+class CreateUsersHasTelefoneTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class CreateCarroHasImagemTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('carro_has_imagem', function(Blueprint $table)
+		Schema::create('users_has_telefone', function(Blueprint $table)
 		{
-			$table->string('carro_placa', 15);
-			$table->integer('imagem_idimagem');
+			$table->string('users_cpf', 20);
+			$table->integer('telefone_idtelefone');
 			$table->timestamps();
 		});
 	}
@@ -28,7 +28,7 @@ class CreateCarroHasImagemTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('carro_has_imagem');
+		Schema::dropIfExists('users_has_telefone');
 	}
 
 }

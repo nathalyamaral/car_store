@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddForeignKeysToCnhTable extends Migration {
+class AddForeignKeysToUsersHasEnderecoTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,8 +12,9 @@ class AddForeignKeysToCnhTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('cnh', function(Blueprint $table)
+		Schema::table('users_has_endereco', function(Blueprint $table)
 		{
+			$table->foreign('endereco_idendereco')->references('idendereco')->on('endereco')->onUpdate('NO ACTION')->onDelete('NO ACTION');
 			$table->foreign('users_cpf')->references('cpf')->on('users')->onUpdate('cascade')->onDelete('NO ACTION');
 		});
 	}
@@ -26,8 +27,9 @@ class AddForeignKeysToCnhTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('cnh', function(Blueprint $table)
+		Schema::table('users_has_endereco', function(Blueprint $table)
 		{
+			$table->dropForeign('endereco_idendereco');
 			$table->dropForeign('users_cpf');
 		});
 	}

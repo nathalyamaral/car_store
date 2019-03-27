@@ -14,8 +14,8 @@ class AddForeignKeysToCarroHasImagemTable extends Migration {
 	{
 		Schema::table('carro_has_imagem', function(Blueprint $table)
 		{
-			$table->foreign('carro_placa', 'fk_carro_has_imagem_carro1')->references('placa')->on('carro')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-			$table->foreign('imagem_idimagem', 'fk_carro_has_imagem_imagem1')->references('idimagem')->on('imagem')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+			$table->foreign('carro_placa')->references('placa')->on('carro')->onUpdate('cascade')->onDelete('NO ACTION');
+			$table->foreign('imagem_idimagem')->references('idimagem')->on('imagem')->onUpdate('NO ACTION')->onDelete('NO ACTION');
 		});
 	}
 
@@ -29,8 +29,8 @@ class AddForeignKeysToCarroHasImagemTable extends Migration {
 	{
 		Schema::table('carro_has_imagem', function(Blueprint $table)
 		{
-			$table->dropForeign('fk_carro_has_imagem_carro1');
-			$table->dropForeign('fk_carro_has_imagem_imagem1');
+			$table->dropForeign('carro_placa');
+			$table->dropForeign('imagem_idimagem');
 		});
 	}
 

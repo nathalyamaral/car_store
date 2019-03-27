@@ -14,8 +14,9 @@ class CreateExtraTable extends Migration {
 	{
 		Schema::create('extra', function(Blueprint $table)
 		{
-			$table->integer('numero_seguro', true);
-			$table->float('valor_seguro', 10, 0);
+			$table->integer('numero_seguro')->primary();
+			$table->float('valor_seguro');
+			$table->timestamps();
 		});
 	}
 
@@ -27,7 +28,7 @@ class CreateExtraTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('extra');
+		Schema::dropIfExists('extra');
 	}
 
 }

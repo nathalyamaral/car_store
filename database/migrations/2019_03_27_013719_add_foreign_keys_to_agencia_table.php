@@ -14,7 +14,7 @@ class AddForeignKeysToAgenciaTable extends Migration {
 	{
 		Schema::table('agencia', function(Blueprint $table)
 		{
-			$table->foreign('usuario_cpf', 'fk_agencia_usuario1')->references('cpf')->on('usuario')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+			$table->foreign('users_cpf')->references('cpf')->on('users')->onUpdate('cascade')->onDelete('NO ACTION');
 		});
 	}
 
@@ -28,7 +28,7 @@ class AddForeignKeysToAgenciaTable extends Migration {
 	{
 		Schema::table('agencia', function(Blueprint $table)
 		{
-			$table->dropForeign('fk_agencia_usuario1');
+			$table->dropForeign('usersusuario_cpf');
 		});
 	}
 

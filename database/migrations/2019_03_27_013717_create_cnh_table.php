@@ -14,14 +14,15 @@ class CreateCnhTable extends Migration {
 	{
 		Schema::create('cnh', function(Blueprint $table)
 		{
-			$table->integer('numero_cnh')->unique('numero_cnh_UNIQUE');
-			$table->integer('numero_registro')->unique('numero_registro_UNIQUE');
+			$table->integer('numero_cnh');
+			$table->integer('numero_registro');
 			$table->date('data_validade');
 			$table->string('rg', 30);
 			$table->date('data_nascimento');
 			$table->string('uf', 2);
-			$table->string('usuario_cpf', 20)->index('fk_cnh_usuario1_idx');
-			$table->primary(['numero_cnh','usuario_cpf']);
+			$table->string('users_cpf', 20);
+			$table->primary(['numero_cnh','users_cpf']);
+			$table->timestamps();
 		});
 	}
 
@@ -33,7 +34,7 @@ class CreateCnhTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('cnh');
+		Schema::dropIfExists('cnh');
 	}
 
 }

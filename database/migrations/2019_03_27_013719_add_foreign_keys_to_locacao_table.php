@@ -14,10 +14,10 @@ class AddForeignKeysToLocacaoTable extends Migration {
 	{
 		Schema::table('locacao', function(Blueprint $table)
 		{
-			$table->foreign('carro_placa', 'fk_locacao_carro1')->references('placa')->on('carro')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-			$table->foreign('extra_idextra', 'fk_locacao_extra1')->references('numero_seguro')->on('extra')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-			$table->foreign('pagamento_idpagamento', 'fk_locacao_pagamento1')->references('idpagamento')->on('pagamento')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-			$table->foreign('usuario_cpf', 'fk_locacao_usuario1')->references('cpf')->on('usuario')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+			$table->foreign('carro_placa')->references('placa')->on('carro')->onUpdate('cascade')->onDelete('NO ACTION');
+			$table->foreign('extra_numero_seguro')->references('numero_seguro')->on('extra')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+			$table->foreign('pagamento_idpagamento')->references('idpagamento')->on('pagamento')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+			$table->foreign('users_cpf')->references('cpf')->on('users')->onUpdate('cascade')->onDelete('NO ACTION');
 		});
 	}
 
@@ -31,10 +31,10 @@ class AddForeignKeysToLocacaoTable extends Migration {
 	{
 		Schema::table('locacao', function(Blueprint $table)
 		{
-			$table->dropForeign('fk_locacao_carro1');
-			$table->dropForeign('fk_locacao_extra1');
-			$table->dropForeign('fk_locacao_pagamento1');
-			$table->dropForeign('fk_locacao_usuario1');
+			$table->dropForeign('carro_placa');
+			$table->dropForeign('extra_idextra');
+			$table->dropForeign('pagamento_idpagamento');
+			$table->dropForeign('users_cpf');
 		});
 	}
 

@@ -16,8 +16,9 @@ class CreateAgenciaTable extends Migration {
 		{
 			$table->string('cnpj', 30);
 			$table->string('razao_social', 100);
-			$table->string('usuario_cpf', 20)->index('fk_agencia_usuario1_idx');
-			$table->primary(['cnpj','usuario_cpf']);
+			$table->string('users_cpf', 20);
+			$table->primary(['cnpj','users_cpf']);
+			$table->timestamps();
 		});
 	}
 
@@ -29,7 +30,7 @@ class CreateAgenciaTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('agencia');
+		Schema::dropIfExists('agencia');
 	}
 
 }

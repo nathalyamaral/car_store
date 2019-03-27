@@ -15,7 +15,8 @@ class CreateImagemTable extends Migration {
 		Schema::create('imagem', function(Blueprint $table)
 		{
 			$table->integer('idimagem', true);
-			$table->string('imagem');
+			$table->string('imagem', 191);
+			$table->timestamps();
 		});
 	}
 
@@ -27,7 +28,7 @@ class CreateImagemTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('imagem');
+		Schema::dropIfExists('imagem');
 	}
 
 }

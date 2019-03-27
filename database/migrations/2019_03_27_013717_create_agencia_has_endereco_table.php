@@ -14,8 +14,9 @@ class CreateAgenciaHasEnderecoTable extends Migration {
 	{
 		Schema::create('agencia_has_endereco', function(Blueprint $table)
 		{
-			$table->string('agencia_cnpj', 30)->index('fk_agencia_has_endereco_agencia1_idx');
-			$table->integer('endereco_idendereco')->index('fk_agencia_has_endereco_endereco1_idx');
+			$table->string('agencia_cnpj', 30);
+			$table->integer('endereco_idendereco');
+			$table->timestamps();
 		});
 	}
 
@@ -27,7 +28,7 @@ class CreateAgenciaHasEnderecoTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('agencia_has_endereco');
+		Schema::dropIfExists('agencia_has_endereco');
 	}
 
 }

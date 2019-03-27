@@ -22,6 +22,7 @@ class CreateEnderecoTable extends Migration {
 			$table->string('numero', 10);
 			$table->string('logradouro', 45);
 			$table->string('complemento', 100)->nullable();
+			$table->timestamps();
 		});
 	}
 
@@ -33,7 +34,7 @@ class CreateEnderecoTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('endereco');
+		Schema::dropIfExists('endereco');
 	}
 
 }

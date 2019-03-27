@@ -16,6 +16,7 @@ class CreateMarcaTable extends Migration {
 		{
 			$table->integer('idmarca', true);
 			$table->string('nome', 45);
+			$table->timestamps();
 		});
 	}
 
@@ -27,7 +28,7 @@ class CreateMarcaTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('marca');
+		Schema::dropIfExists('marca');
 	}
 
 }
