@@ -47,13 +47,13 @@ class RegisterController extends Controller
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
-    {
-        $data['cpf'] = preg_replace("/[^0-9]/", "", $data['cpf']);
+    {   
+        //$data['cpf'] = preg_replace("/[^0-9]/", "", $data['cpf']);
         return Validator::make($data, [
-            'cpf' => 'required|cpf|unique:users',
+            'cpf' => 'required|unique:users',
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
     }
 

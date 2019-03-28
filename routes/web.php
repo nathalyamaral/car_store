@@ -19,6 +19,6 @@ Auth::routes();
 
 Route::group(['middleware'=>['web', 'auth']], function()
 {
-	Route::resource('/agencia', 'AgenciaController');
+    Route::get('/home', 'HomeController@index')->name('home');
 });
 
