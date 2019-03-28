@@ -20,27 +20,27 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-
+    
     use AuthenticatesUsers;
-
+    
     /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
+    * Where to redirect users after login.
+    *
+    * @var string
+    */
     protected $redirectTo = '/home';
     protected $redirectPath= '/home';
-
+    
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    * Create a new controller instance.
+    *
+    * @return void
+    */
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
     }
-
+    
     public function login(Request $request)
     {   
         $data = $request->all();
@@ -50,17 +50,23 @@ class LoginController extends Controller
             'password' => ['required', 'string', 'min:6'],
             ]);
             
-        if($validacao->fails())
-        {
-            return back()->with('errors', $validacao->errors());
+            if($validacao->fails())
+            {
+                return back()->with('errors', $validacao->errors());
+            }
+            if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']]))
+            {
+                return redirect()->intended('home');
+            }
+            else
+            {
+                return back()->with('error', 'Email e/ou Senha invalido(s)');
+            }
         }
-        if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']]))
-        {
-            return redirect()->intended('home');
-        }
-        else
-        {
-            return back()->with('error', 'Email e/ou Senha invalido(s)');
+        
+        public function logout(Request $request) {
+            Auth::logout();
+            return redirect('/login');
         }
     }
-}
+    
