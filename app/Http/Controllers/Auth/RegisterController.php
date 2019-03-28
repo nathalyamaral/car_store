@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
@@ -29,6 +30,7 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
+    protected $redirectPath= '/plan';
 
     /**
      * Create a new controller instance.
@@ -50,7 +52,7 @@ class RegisterController extends Controller
     {   
         //$data['cpf'] = preg_replace("/[^0-9]/", "", $data['cpf']);
         return Validator::make($data, [
-            'cpf' => 'required|unique:users',
+            'cpf' => ['required', 'cpf', 'unique:users'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
