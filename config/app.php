@@ -177,6 +177,7 @@ return [
         Way\Generators\GeneratorsServiceProvider::class,
         Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
         LaravelLegends\PtBrValidator\ValidatorProvider::class,
+        Reliese\Coders\CodersServiceProvider::class,
 
     ],
 
