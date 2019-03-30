@@ -3,6 +3,7 @@
 @section('content')
 <section>
 <font color="white">
+    <div class="container">
     <br><br>
     <div class="contact-content">
             <div class="row">
@@ -47,19 +48,20 @@
                             </div>
                             <font size="2%">
                                 <div class="primary-button">
-                                    <a href="{{ route('login') }}">Login <i class="fa fa-paper-plane"></i></a>
-
-                                    @if (Route::has('password.request'))
+                                <button class="btn btn-primary" type="submit"> {{ __('Login') }} 
+                                    <i class="fa fa-paper-plane"></i></button>
+                                </div>
+                                @if (Route::has('password.request'))
                                         <a class="btn btn-link" href="{{ route('password.request') }}">
                                             {{ __('Esqueceu sua senha?') }}
                                         </a>
                                     @endif
-                                </div>
                             </font>
                         </form>
                     </div>
                 </div>
             </div>
+        </div>
     </div>
 </font>
 </section>

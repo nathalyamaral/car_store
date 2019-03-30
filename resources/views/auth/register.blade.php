@@ -6,7 +6,7 @@
 <font color="white">
     <br><br>
     <div class="contact-content" >
-        
+        <div class="container">
             <div class="row">
                 <div class="col-md-8">
                     <div class="send-message">
@@ -15,22 +15,26 @@
                         </div>
                         
                         <form id="contact_form" action="{{ route('register') }}" method="POST" >
-                         @csrf
+                        @csrf
+                        
                             <div class="row">
                                 <div class=" col-md-4 col-sm-4 col-xs-6">
-                                    <label for="cpf" id="cpf" class="col-md-4 col-form-label text-md-right">{{ __('CPF') }}</label>
-                                    <input type="text" class="blog-search-field{{ $errors->has('cpf') ? ' is-invalid' : '' }}" name="cpf" value="{{ old('cpf') }}" required autofocus>
-                                        
+                                    <label for="cpf" class="col-md-4 col-form-label text-md-right">{{ __('CPF') }}</label>
+
+                                
+                                    <input id="cpf" type="text" class="form-control{{ $errors->has('cpf') ? ' is-invalid' : '' }}" name="cpf" value="{{ old('cpf') }}" required autofocus>
+
                                     @if ($errors->has('cpf'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('cpf') }}</strong>
                                         </span>
                                     @endif
+
                                 </div>
 
                                 <div class=" col-md-4 col-sm-4 col-xs-6">
-                                    <label id="name" for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
-                                    <input type="text" class="blog-search-field{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
 
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback" role="alert">
@@ -43,8 +47,8 @@
 
                             <div class="row">
                                 <div class=" col-md-4 col-sm-4 col-xs-6">
-                                    <label id="email" for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
-                                    <input type="text" id="email" for="email" class="blog-search-field{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                                    <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
+                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
 
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback" role="alert">
@@ -52,9 +56,10 @@
                                         </span>
                                     @endif
                                 </div>
-                                <br>
-                                <div class=" col-md-4 col-sm-4 col-xs-6">
-                                    <label id="passaword" for="password" class="col-md-4 col-form-label text-md-right">{{ __('Senha') }}</label>
+                               
+                           
+                                <div class="col-md-4 col-sm-4 col-xs-6">
+                                    <label for="password">{{ __('Password') }}</label>
                                     <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                                     @if ($errors->has('password'))
@@ -62,19 +67,24 @@
                                             <strong>{{ $errors->first('password') }}</strong>
                                         </span>
                                     @endif
+                                    <br>
+                                    <label for="password-confirm" >{{ __('Confirm Password') }}</label>
+
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                   
                                 </div>
 
                             </div>
 
                             <div class="primary-button">
-                                <a href="{{ route('register') }}">Enviar <i class="fa fa-paper-plane"></i></a>
+                                <button class="btn btn-primary" type="submit"> {{ __('Register') }} <i class="fa fa-paper-plane"></i></button>
                             </div>
 
                         </form>
                     </div>
                 </div>
             </div>
-        
+        </div>
     </div>
 </font>
 </section>
