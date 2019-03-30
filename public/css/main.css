@@ -3597,7 +3597,7 @@ footer .footer-item .quick-search input:focus {
 }
 
 footer .sub-footer {
-    margin-top: 50px;
+    margin-top: 0.2%;
     border-top: 1px solid rgba(250, 250, 250, 0.1);
     height: 60px;
     text-align: center

@@ -10,8 +10,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="js/bootstrap.js" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="js/bootstrap.min.js" defer></script>
     <script src="js/jquery-1.11.0.min.js" defer></script>
     <script src="js/jquery.gmap3.min.js" defer></script>
@@ -27,19 +27,18 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 
-<nav>
-    @include('header')
-</nav>
 <body style="background-color: black">
     
+    @include('header')
 
     <div class="container">
-        @yield('slide')
         @yield('content')
     </div>
 
     @include('footer')
+
 </body>
 </html>

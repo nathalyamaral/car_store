@@ -1,12 +1,12 @@
-<header class="site-header wow fadeIn" data-wow-duration="1s">
+<header class="site-header">
 	<div id="main-header" class="main-header">
 		<div class="container clearfix">
 			<div class="logo">
-				<a href="{{ url('/index') }}"></a>
+				<a href="{{ url('/') }}"></a>
 			</div>
 			<div id='cssmenu'>
 				<ul>
-				   	<li class='active'><a href="{{ url('/welcome') }}">Homepage</a></li>
+				   	<li class='active'><a href="{{ url('/') }}">Homepage</a></li>
 				   	<li><a href="{{ url('/carros') }}">Lista de Carros</a></li>
 			   		<li><a href="#">Cadastrar Carros</a></li>
 			   		<li><a href="#">Cadastrar Agencia</a></li>
