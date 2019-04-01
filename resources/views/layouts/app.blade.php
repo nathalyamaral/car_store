@@ -31,10 +31,8 @@
 </head>
 
 <body>
-    @include('header')
+    @header
+    @endheader
     {{$slot}}
-
-    <!--@include('footer')-->
-
 </body>
 </html>

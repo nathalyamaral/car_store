@@ -28,5 +28,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('layouts.app', 'appview');
         Blade::component('slide', 'slide');
         Blade::component('index', 'index');
+        Blade::component('header', 'header');
+        Blade::component('footer', 'footer');
     }
 }
