@@ -30,15 +30,11 @@
 
 </head>
 
-<body style="background-color: black">
-    
+<body>
     @include('header')
+    {{$slot}}
 
-    <div class="container">
-        @yield('content')
-    </div>
-
-    @include('footer')
+    <!--@include('footer')-->
 
 </body>
 </html>

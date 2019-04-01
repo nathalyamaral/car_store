@@ -1,5 +1,5 @@
-@extends('layouts.app')
 
-@section('content')
-	@include('slide')
-@endsection
+@appview
+	@slide
+	@endslide
+@endappview
