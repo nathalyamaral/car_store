@@ -13,7 +13,7 @@
                             <h2><em>Login</em></h2>
                         </div>
                         
-                        <form id="contact_form" action="{{ route('login') }}" method="POST" enctype="multipart/form-data" >
+                        <form id="contact_form" method="POST" action="{{ route('login') }}">
 
                             @csrf
                             @if ($message = Session::get('error'))

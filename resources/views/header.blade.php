@@ -10,9 +10,20 @@
 				   	<li><a href="{{ url('/carros') }}">Lista de Carros</a></li>
 			   		<li><a href="#">Cadastrar Carros</a></li>
 			   		<li><a href="#">Cadastrar Agencia</a></li>
-			   		<li><a href='#'>Sair</a></li>
-			   		<li><a href="{{ url('/login') }}">Login</a></li>
-				 	<li><a href="{{	url('/register') }}">Register</a></li>
+			   		@guest
+				   		<li><a href="{{ route('login') }}">Login</a></li>
+				   		@if (Route::has('register'))
+					 	<li><a href="{{ route('register') }}">Register</a></li>
+						@endif
+                    @else
+                    	<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    	<li><a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Sair</a></li>
+                    @csrf
+                	</form>
+
+                    @endguest
 				</ul>
 			</div>
 		</div>
