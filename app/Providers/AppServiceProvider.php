@@ -26,9 +26,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Blade::component('layouts.app', 'appview');
-        Blade::component('slide', 'slide');
+        Blade::component('components.index.slide', 'slide');
         Blade::component('index', 'index');
-        Blade::component('header', 'header');
-        Blade::component('footer', 'footer');
+        Blade::component('components.menu.header', 'header');
+        Blade::component('components.footer', 'footer');
+        Blade::component('components.index.servicos', 'servicos');
+        Blade::component('components.index.pesquisarapida', 'pesquisarapida');
+        Blade::component('components.index.carrosrecentes', 'carrosrecentes');
+        Blade::component('components.index.depoimentos', 'depoimentos');
     }
 }
