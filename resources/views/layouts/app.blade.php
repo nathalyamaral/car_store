@@ -33,6 +33,5 @@
 <body>
     @header
     @endheader
-    {{$slot}}
 </body>
 </html>
