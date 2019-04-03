@@ -499,23 +499,23 @@ section {
 }
 
 .scrolled-header .logo {
-    background-image: url(../images/logo_black.png)!important
+    background-image: url(../images/logo_white.png)!important
 }
 
 .scrolled-header #cssmenu>ul>li>a {
-    color: #1e1e1e!important
+    color: #fff!important
 }
 
 .scrolled-header #cssmenu>ul>li:hover>a {
-    color: #2959ad!important
+    color: #f4c23d!important
 }
 
 .scrolled-header #cssmenu>ul>li.has-sub>a:after {
-    background: #1e1e1e!important
+    background: #fff!important
 }
 
 .scrolled-header #cssmenu>ul>li.has-sub>a:before {
-    background: #1e1e1e!important
+    background: #fff!important
 }
 
 .scrolled-header #cssmenu ul ul li:hover>a,
@@ -778,7 +778,7 @@ section {
 @media (max-width:767px) {
     .site-header #cssmenu>ul>li>a {
         padding: 16px 15px;
-        color: #1e1e1e
+        color: #f7f7f7
     }
 }
 
@@ -808,7 +808,7 @@ only screen and (min-resolution:192dpi) and (max-width:1024px) {
         float: left;
         padding: 15px 0px 44px 0px;
         display: inline-block;
-        background-image: url(../images/logo_responsive_black.png)
+        background-image: url(../images/logo_white.png)
     }
     .site-header #cssmenu.align-center>ul {
         text-align: left
@@ -874,9 +874,9 @@ only screen and (min-resolution:192dpi) and (max-width:1024px) {
         font-size: 16px;
         content: '\f0c9';
         font-family: 'FontAwesome';
-        float: right;
-        color: #1e1e1e;
-        background-color: #f4c23d;
+		float: right;
+        color: #f4c23d;
+        background-color: #4a4a4a;
         display: inline-block;
         width: 46px;
         height: 46px;

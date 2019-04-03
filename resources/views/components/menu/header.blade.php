@@ -1,5 +1,5 @@
 <header class="site-header">
-	<div id="main-header" class="main-header">
+	<div id="main-header" class="main-header" style="background:#4a4a4a;">
 		<div class="container clearfix">
 			<div class="logo">
 				<a href="{{ url('/') }}"></a>
