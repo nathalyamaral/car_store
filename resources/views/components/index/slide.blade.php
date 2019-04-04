@@ -1,3 +1,5 @@
+	<script src="js/custom.js"></script> 
+	
 	<div class="Modern-Slider">
 		<!-- Slide 1 -->
 		<div class="item">

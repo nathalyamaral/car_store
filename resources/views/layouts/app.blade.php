@@ -10,16 +10,14 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="js/jquery-1.11.0.min.js" defer></script>
-    <script src="js/sliderpro.min.js" defer></script>
-    <script src="js/slick.js" defer></script>
-    <script src="js/bootstrap.min.js" defer></script>
-    <script src="js/owl.carousel.min.js" defer></script>
-    <script src="js/wow.animation.js" defer></script>
-    <script src="js/custom.js" defer></script>
+    
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/sliderpro.min.js"></script>
+    <script src="js/slick.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.animation.js"></script>
+      
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
