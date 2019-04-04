@@ -6,15 +6,7 @@
  */
 
 require('./bootstrap');
-require('js/bootstrap.js');
-require('js/bootstrap.min.js');
-require('js/jquery-1.11.0.min.js');
-require('js/jquery.gmap3.min.js');
-require('js/owl.carousel.min.js');
-require('js/slick.js');
-require('js/sliderpro.min.js');
-require('js/wow.animation.js');
-require('js/custom.js');
+
 window.Vue = require('vue');
 
 /**

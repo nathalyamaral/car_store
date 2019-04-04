@@ -13,8 +13,15 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-   
+    <script src="js/jquery-1.11.0.min.js" defer></script>
+    <script src="js/sliderpro.min.js" defer></script>
+    <script src="js/slick.js" defer></script>
+    <script src="js/bootstrap.min.js" defer></script>
+    <script src="js/owl.carousel.min.js" defer></script>
+    <script src="js/wow.animation.js" defer></script>
+    <script src="js/custom.js" defer></script>
     <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
