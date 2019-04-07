@@ -1,64 +1,83 @@
-<form action="{{ route('register') }}" method="POST">
-    @csrf
-    <div class="row">
-        <div class=" col-md-4 col-sm-4 col-xs-6">
-            <label for="cpf" class="col-md-4 col-form-label text-md-right">{{ __('CPF') }}</label>
-            <input id="cpf" type="text" class="blog-search-field{{ $errors->has('cpf') ? ' is-invalid' : '' }}" name="cpf" value="{{ old('cpf') }}" required autofocus>
-            
-            @if ($errors->has('cpf'))
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('cpf') }}</strong>
-            </span>
-            @endif
-            
+<div class="container">
+    <form id="contact" action="#">
+        <div>
+            <h3>Dados</h3>
+            <section>
+                <label for="cpf">CPF *</label>
+                <input id="cpf" name="cpf" type="text" class="required">
+                <label for="name">Nome completo*</label>
+                <input id="name" name="name" type="text" class="required">
+                <label for="email">Email *</label>
+                <input id="email" name="email" type="text" class="required email">
+                <label for="password">Senha *</label>
+                <input id="password" name="password" type="text" class="required">
+                <label for="confirm">Confirme sua senha *</label>
+                <input id="confirm" name="confirm" type="text" class="required">
+            </section>
+            <h3>CNH</h3>
+            <section>
+                <label for="userName">User name *</label>
+                <input id="userName" name="userName" type="text" class="required">
+            </section>
+            <h3>Endereço</h3>
+            <section>
+                <ul>
+                    <li>Foo</li>
+                    <li>Bar</li>
+                    <li>Foobar</li>
+                </ul>
+            </section>
+            <h3>Fim</h3>
+            <section>
+                <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms">I agree with the Terms and Conditions.</label>
+            </section>
         </div>
+    </form>
+    <script type="text/javascript">
+        var form = $("#contact");
+        form.validate({
+            errorPlacement: function errorPlacement(error, element) { element.before(error); },
+            rules: {
+                confirm: {
+                    equalTo: "#password",
+                    minlength : 6
+                },
+                cpf:{
+                    required: true, 
+                    verificaCPF: true
+                },
+                password:{
+                    minlength : 6
+                }
+            },
+            messages: {
+                password: {
+                    minlength:"Mínimo de seis (6) caracteres"
+                },
+                confirm: {
+                    minlength:"Mínimo de seis (6) caracteres"
+                }
+            }
+        });
         
-        <div class=" col-md-4 col-sm-4 col-xs-6">
-            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-            <input id="name" type="text" class="blog-search-field{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
-            
-            @if ($errors->has('name'))
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('name') }}</strong>
-            </span>
-            @endif
-        </div>
-    </div>
-    
-    
-    <div class="row">
-        <div class=" col-md-4 col-sm-4 col-xs-6">
-            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
-            <input id="email" type="email" class="blog-search-field{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-            
-            @if ($errors->has('email'))
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('email') }}</strong>
-            </span>
-            @endif
-        </div>
-        
-        
-        <div class="col-md-4 col-sm-4 col-xs-6">
-            <label for="password">{{ __('Password') }}</label>
-            <input id="password" type="password" class="blog-search-field{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-            
-            @if ($errors->has('password'))
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('password') }}</strong>
-            </span>
-            @endif
-            <br>
-            <label for="password-confirm" >{{ __('Confirm Password') }}</label>
-            
-            <input id="password-confirm" type="password" class="blog-search-field" name="password_confirmation" required>
-            
-        </div>
-        
-    </div>
-    
-    <div class="primary-button">
-        <button class="btn btn-primary" type="submit"> {{ __('Register') }} <i class="fa fa-paper-plane"></i></button>
-    </div>
-    
-</form>
+        form.children("div").steps({
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "slideLeft",
+            onStepChanging: function (event, currentIndex, newIndex)
+            {
+                form.validate().settings.ignore = ":disabled,:hidden";
+                return form.valid();
+            },
+            onFinishing: function (event, currentIndex)
+            {
+                form.validate().settings.ignore = ":disabled";
+                return form.valid();
+            },
+            onFinished: function (event, currentIndex)
+            {
+                alert("Submitted!");
+            }
+        });
+    </script>
+</div>
