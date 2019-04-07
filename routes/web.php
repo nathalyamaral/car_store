@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/verifica_cpf/{cpf}', 'Auth\RegisterController@existsCpf');
+
 Auth::routes();
 
 Route::group(['middleware'=>['web', 'auth']], function(){

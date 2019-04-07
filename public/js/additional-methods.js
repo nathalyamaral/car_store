@@ -422,103 +422,107 @@ jQuery.validator.addMethod("verificaCPF", function(value, element) {
 		a[10] = 11-x; 
 	}
 	if ((cpf.charAt(9) != a[9]) || (cpf.charAt(10) != a[10]) || cpf.match(expReg)) 
-		return false;
+	return false;
 	var verifica = false;
 	jQuery.ajax({
-        url: 'verifica_cpf.php?cpf='+cpf,
-        async: false,
-        success: function(data) {
-           if(data == 0) verifica = true; 
-       }});
-	if(!verifica) return false;
+		type: "GET",
+		url: '/verifica_cpf/'+cpf,
+		async: false,
+		success: function(data) {
+			if(data == false) 
+				verifica = true; 
+		}});
+		if(!verifica) 
+			return false;
+		
+		return true;
+	}, "CPF inválido ou já cadastrado!");
 	
-	return true;
-}, "CPF inválido ou já cadastrado!");
-
-// Método para vildar o cnpj
-jQuery.validator.addMethod("cnpj", function (cnpj, element) {
-    cnpj = jQuery.trim(cnpj);
-
-    // DEIXA APENAS OS NÚMEROS
-    cnpj = cnpj.replace('/', '');
-    cnpj = cnpj.replace('.', '');
-    cnpj = cnpj.replace('.', '');
-    cnpj = cnpj.replace('-', '');
-
-    var numeros, digitos, soma, i, resultado, pos, tamanho, digitos_iguais;
-    digitos_iguais = 1;
-
-    if (cnpj.length < 14 && cnpj.length < 15) {
-        return this.optional(element) || false;
-    }
-    for (i = 0; i < cnpj.length - 1; i++) {
-        if (cnpj.charAt(i) != cnpj.charAt(i + 1)) {
-            digitos_iguais = 0;
-            break;
-        }
-    }
-
-    if (!digitos_iguais) {
-        tamanho = cnpj.length - 2
-        numeros = cnpj.substring(0, tamanho);
-        digitos = cnpj.substring(tamanho);
-        soma = 0;
-        pos = tamanho - 7;
-
-        for (i = tamanho; i >= 1; i--) {
-            soma += numeros.charAt(tamanho - i) * pos--;
-            if (pos < 2) {
-                pos = 9;
-            }
-        }
-        resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-        if (resultado != digitos.charAt(0)) {
-            return this.optional(element) || false;
-        }
-        tamanho = tamanho + 1;
-        numeros = cnpj.substring(0, tamanho);
-        soma = 0;
-        pos = tamanho - 7;
-        for (i = tamanho; i >= 1; i--) {
-            soma += numeros.charAt(tamanho - i) * pos--;
-            if (pos < 2) {
-                pos = 9;
-            }
-        }
-        resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-        if (resultado != digitos.charAt(1)) {
-            return this.optional(element) || false;
-        }
-        return this.optional(element) || true;
-    } else {
-        return this.optional(element) || false;
-    }
-}, "Informe um CNPJ válido.");
-
-
-// Método para vildar a data 
-jQuery.validator.addMethod("dateBR", function (value, element) {
-    //contando chars    
-    if (value.length != 10) return (this.optional(element) || false);
-    // verificando data
-    var data = value;
-    var dia = data.substr(0, 2);
-    var barra1 = data.substr(2, 1);
-    var mes = data.substr(3, 2);
-    var barra2 = data.substr(5, 1);
-    var ano = data.substr(6, 4);
-    if (data.length != 10 || barra1 != "/" || barra2 != "/" || isNaN(dia) || isNaN(mes) || isNaN(ano) || dia > 31 || mes > 12) return (this.optional(element) || false);
-    if ((mes == 4 || mes == 6 || mes == 9 || mes == 11) && dia == 31) return (this.optional(element) || false);
-    if (mes == 2 && (dia > 29 || (dia == 29 && ano % 4 != 0))) return (this.optional(element) || false);
-    if (ano < 1900) return (this.optional(element) || false);
-    return (this.optional(element) || true);
-}, "Informe uma data válida");  // Mensagem padrão 
-
-
-// Método para vildar o telefone 
-jQuery.validator.addMethod("telefone", function (value, element) {
-    value = value.replace("(", "");
-    value = value.replace(")", "");
-    value = value.replace("-", "");
-    return this.optional(element) || /[0-9]{10}/.test(value);
-}, "Por favor, um telefone válido");
+	// Método para vildar o cnpj
+	jQuery.validator.addMethod("cnpj", function (cnpj, element) {
+		cnpj = jQuery.trim(cnpj);
+		
+		// DEIXA APENAS OS NÚMEROS
+		cnpj = cnpj.replace('/', '');
+		cnpj = cnpj.replace('.', '');
+		cnpj = cnpj.replace('.', '');
+		cnpj = cnpj.replace('-', '');
+		
+		var numeros, digitos, soma, i, resultado, pos, tamanho, digitos_iguais;
+		digitos_iguais = 1;
+		
+		if (cnpj.length < 14 && cnpj.length < 15) {
+			return this.optional(element) || false;
+		}
+		for (i = 0; i < cnpj.length - 1; i++) {
+			if (cnpj.charAt(i) != cnpj.charAt(i + 1)) {
+				digitos_iguais = 0;
+				break;
+			}
+		}
+		
+		if (!digitos_iguais) {
+			tamanho = cnpj.length - 2
+			numeros = cnpj.substring(0, tamanho);
+			digitos = cnpj.substring(tamanho);
+			soma = 0;
+			pos = tamanho - 7;
+			
+			for (i = tamanho; i >= 1; i--) {
+				soma += numeros.charAt(tamanho - i) * pos--;
+				if (pos < 2) {
+					pos = 9;
+				}
+			}
+			resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+			if (resultado != digitos.charAt(0)) {
+				return this.optional(element) || false;
+			}
+			tamanho = tamanho + 1;
+			numeros = cnpj.substring(0, tamanho);
+			soma = 0;
+			pos = tamanho - 7;
+			for (i = tamanho; i >= 1; i--) {
+				soma += numeros.charAt(tamanho - i) * pos--;
+				if (pos < 2) {
+					pos = 9;
+				}
+			}
+			resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+			if (resultado != digitos.charAt(1)) {
+				return this.optional(element) || false;
+			}
+			return this.optional(element) || true;
+		} else {
+			return this.optional(element) || false;
+		}
+	}, "Informe um CNPJ válido.");
+	
+	
+	// Método para vildar a data 
+	jQuery.validator.addMethod("dateBR", function (value, element) {
+		//contando chars    
+		if (value.length != 10) return (this.optional(element) || false);
+		// verificando data
+		var data = value;
+		var dia = data.substr(0, 2);
+		var barra1 = data.substr(2, 1);
+		var mes = data.substr(3, 2);
+		var barra2 = data.substr(5, 1);
+		var ano = data.substr(6, 4);
+		if (data.length != 10 || barra1 != "/" || barra2 != "/" || isNaN(dia) || isNaN(mes) || isNaN(ano) || dia > 31 || mes > 12) return (this.optional(element) || false);
+		if ((mes == 4 || mes == 6 || mes == 9 || mes == 11) && dia == 31) return (this.optional(element) || false);
+		if (mes == 2 && (dia > 29 || (dia == 29 && ano % 4 != 0))) return (this.optional(element) || false);
+		if (ano < 1900) return (this.optional(element) || false);
+		return (this.optional(element) || true);
+	}, "Informe uma data válida");  // Mensagem padrão 
+	
+	
+	// Método para vildar o telefone 
+	jQuery.validator.addMethod("telefone", function (value, element) {
+		value = value.replace("(", "");
+		value = value.replace(")", "");
+		value = value.replace("-", "");
+		return this.optional(element) || /[0-9]{10}/.test(value);
+	}, "Por favor, um telefone válido");
+	
