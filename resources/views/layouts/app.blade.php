@@ -35,6 +35,9 @@
 	<!-- Custom Js -->
     <script src="js/custom.js"></script>
 
+    <!-- Mask Js -->
+    <script src="js/jquery.mask.min.js"></script>
+    
     <!-- Fonts -->
 
     <!-- Styles -->

@@ -5,14 +5,14 @@
             <section>
                 <label for="cpf">CPF *</label>
                 <input id="cpf" name="cpf" type="text" class="required">
-                <label for="name">Nome completo*</label>
+                <label for="name">Nome completo *</label>
                 <input id="name" name="name" type="text" class="required">
                 <label for="email">Email *</label>
                 <input id="email" name="email" type="text" class="required email">
                 <label for="password">Senha *</label>
-                <input id="password" name="password" type="text" class="required">
+                <input id="password" name="password" type="password" class="required">
                 <label for="confirm">Confirme sua senha *</label>
-                <input id="confirm" name="confirm" type="text" class="required">
+                <input id="confirm" name="confirm" type="password" class="required">
             </section>
             <h3>CNH</h3>
             <section>
@@ -34,6 +34,12 @@
         </div>
     </form>
     <script type="text/javascript">
+        $('#cpf').mask('000.000.000-00');
+        
+    jQuery.validator.setDefaults({
+        debug: true,
+        success: "valid"
+    });
         var form = $("#contact");
         form.validate({
             errorPlacement: function errorPlacement(error, element) { element.before(error); },
@@ -44,10 +50,20 @@
                 },
                 cpf:{
                     required: true, 
+                    unique:['cpf', '/verifica_cpf/'],
                     verificaCPF: true
+                },
+
+                email: {
+                    required: true,
+                    unique:['email', '/verifica_email/'],
+                    email: true
                 },
                 password:{
                     minlength : 6
+                }, 
+                name:{
+                    letterswithbasicpunc: true
                 }
             },
             messages: {
@@ -56,6 +72,12 @@
                 },
                 confirm: {
                     minlength:"Mínimo de seis (6) caracteres"
+                }, 
+                email:{
+                    unique: "Este Email já esta em uso",
+                },
+                cpf:{
+                    unique: "Este CPF já esta em uso", 
                 }
             }
         });

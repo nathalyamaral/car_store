@@ -86,4 +86,14 @@ class RegisterController extends Controller
         }    
 
     }
+
+    protected function existsEmail(Request $request){
+        $email = $request['email'];
+        if(User::existEmail($email) == null){
+            return response()->json(false);
+        }else{
+            return response()->json(true);
+        }    
+
+    }
 }

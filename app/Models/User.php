@@ -40,7 +40,11 @@ class User extends Authenticatable{
 
     public static function existCpf($cpf)
     {
-       return DB::table('users')->where('cpf', $cpf)->value('cpf');
-            
+       return DB::table('users')->where('cpf', $cpf)->value('cpf');       
+    }
+    
+    public static function existEmail($email)
+    {
+       return DB::table('users')->where('email', $email)->value('email');       
 	}
 }
