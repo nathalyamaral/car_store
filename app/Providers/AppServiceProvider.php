@@ -38,7 +38,6 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('components.login.formlogin', 'formlogin');
         Blade::component('components.form.cadastrarCnh', 'cadastrarCnh');
         Blade::component('components.form.registraAgencia', 'registraAgencia');
-        
-
+        Blade::component('components.adm.painel', 'painel');
     }
 }
