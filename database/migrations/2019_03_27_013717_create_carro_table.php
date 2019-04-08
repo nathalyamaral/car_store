@@ -28,6 +28,7 @@ class CreateCarroTable extends Migration {
 			$table->enum('status', array('A','D'));
 			$table->integer('marca_idmarca');
 			$table->integer('categoria_idcategoria');
+			$table->string('agencia_cnpj', 30);
 			$table->timestamps();
 		});
 	}

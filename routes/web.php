@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/carros', '\CarroController@carros');
+
 Route::get('/verifica_cpf/{cpf}', 'Auth\RegisterController@existsCpf');
 Route::get('/verifica_email/{email}', 'Auth\RegisterController@existsEmail');
 

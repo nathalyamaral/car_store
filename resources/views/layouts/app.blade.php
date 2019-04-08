@@ -12,6 +12,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+    <script type="text/javascript" href="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="js/jquery-1.11.0.min.js"></script>
 	<script src="js/jquery.steps.js"></script>
     <script src="js/jquery.validate-1.19.0.js"></script>
@@ -37,7 +38,7 @@
 
     <!-- Mask Js -->
     <script src="js/jquery.mask.min.js"></script>
-    
+    <script src="js/cidade_estado.js"></script>
     <!-- Fonts -->
 
     <!-- Styles -->

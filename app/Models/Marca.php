@@ -21,8 +21,8 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class Marca extends Eloquent
-{
+class Marca extends Eloquent{
+	
 	protected $table = 'marca';
 	protected $primaryKey = 'idmarca';
 
@@ -34,4 +34,9 @@ class Marca extends Eloquent
 	{
 		return $this->hasMany(\App\Models\Carro::class, 'marca_idmarca');
 	}
+
+	static function marcas(){
+        $marca=self::all();
+        return $marca;
+    }
 }

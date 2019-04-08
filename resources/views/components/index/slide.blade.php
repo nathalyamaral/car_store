@@ -6,10 +6,10 @@
 			<img src="images/main_slide_01.jpg" alt="">
 			<div class="info">
 				<div>
-					<h5>ACROPOS HAS THE BEST CHOICE</h5>
-					<h3>Looking For Perffect <em>Car</em>?</h3>
+					<h5>MIC CAR TEM AS MELHORES OFERTAS</h5>
+					<h3>Procurando o carro<em> perfeito</em>?</h3>
 					<h6 class="secondary-button">
-						<a href="#">Find Your Car <i class="fa fa-car"></i></a>
+						<a href="#">Ver carros <i class="fa fa-car"></i></a>
 					</h6>
 				</div>
 			</div>
@@ -23,10 +23,10 @@
 			<img src="images/main_slide_02.jpg" alt="">
 			<div class="info">
 				<div>
-					<h5>ACROPOS HAS THE BEST CHOICE</h5>
-					<h3>Looking For Perffect <em>Car</em>?</h3>
+					<h5>MIC CAR TEM AS MELHORES OFERTAS</h5>
+					<h3>Procurando o carro<em> perfeito</em>?</h3>
 					<h6 class="secondary-button">
-						<a href="#">Find Your Car <i class="fa fa-car"></i></a>
+						<a href="#">Ver carros <i class="fa fa-car"></i></a>
 					</h6>
 				</div>
 			</div>
@@ -40,10 +40,10 @@
 			<img src="images/main_slide_03.jpg" alt="">
 			<div class="info">
 				<div>
-					<h5>ACROPOS HAS THE BEST CHOICE</h5>
-					<h3>Looking For Perffect <em>Car</em>?</h3>
+					<h5>MIC CAR TEM AS MELHORES OFERTAS</h5>
+					<h3>Procurando o carro<em> perfeito</em>?</h3>
 					<h6 class="secondary-button">
-						<a href="#">Find Your Car <i class="fa fa-car"></i></a>
+						<a href="#">Ver carros <i class="fa fa-car"></i></a>
 					</h6>
 				</div>
 			</div>

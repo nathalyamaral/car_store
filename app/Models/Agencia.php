@@ -46,4 +46,14 @@ class Agencia extends Eloquent
 	{
 		return $this->hasOne(\App\Models\AgenciaHasTelefone::class, 'agencia_cnpj');
 	}
+
+	 public static function getAgencia(){
+		$value = DB::table('agencia')->orderBy('cnpj', 'asc')->get(); 
+		return $value;
+   	}
+
+   	public static function getAgenciaEmployee($agencia_cnpj=0){
+		$value = DB::table('agencia')->where('cnpj', $agencia_cnpj)->get();
+		return $value;
+   }
 }
