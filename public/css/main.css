@@ -41,7 +41,7 @@ p {
 }
 
 section {
-    padding: 80px 0px 0px 0px
+    padding: 10px 0px 0px 0px
 }
 
 .primary-button a {
@@ -2625,13 +2625,6 @@ only screen and (min-resolution:192dpi) and (max-width:1024px) {
 	    color: #1e1e1e
 	}
 
-	@media (max-width:991px) {
-	    .contact-content .send-message {
-	        margin-bottom: 30px;
-	        padding-bottom: 30px;
-	        border-bottom: 3px solid #eee
-	    }
-	}
 
 	.contact-content .send-message input {
 	    outline: none;

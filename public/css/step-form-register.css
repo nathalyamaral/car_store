@@ -714,8 +714,8 @@ Common
 .wizard > .steps .disabled a:hover,
 .wizard > .steps .disabled a:active
 {
-    background: #eee;
-    color: #aaa;
+    background: #aaa;
+    color: #000;
     cursor: default;
 }
 
@@ -723,7 +723,7 @@ Common
 .wizard > .steps .current a:hover,
 .wizard > .steps .current a:active
 {
-    background: #fcfcfc;
+    background: #ffc107;
     color: #111;
     cursor: default;
 }
