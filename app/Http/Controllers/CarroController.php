@@ -15,8 +15,12 @@ class CarroController extends Controller
      */
 
     public function carros(Request $request){
-        $carros =  Carro::getCarroAgencia($request['agencia_cnpj']);
-        return view('carros', ["agencia" => $request['agencia_cnpj'], "dados" => $carros);
+        
+        $agencia = DB::table('agencia')->pluck("razao_social","cnpj")->all();
+        return view('index', compact('agencia'));
+
+        $carros =  Carro::getCarroAgencia($request['agencia']);
+        return view('carros', ["agencia" => $request['agencia'], "dados" => $carros);
     }
     /**
      * Show the form for creating a new resource.

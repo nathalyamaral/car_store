@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Agencia;
 use App\Models\Users;
+use App\Models\Endereco;
+use DB;
 
 class AgenciaController extends Controller
 {
@@ -13,9 +15,21 @@ class AgenciaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
-        //
+        $agencia = DB::table('agencia')->pluck("razao_social","cnpj")->all();
+        return view('index', compact('agencia'));
+    }
+
+    public function select(Request $request){
+        if($request->ajax()){
+            $endereco = DB::table('endereco')->where('cidade', $request->cidades)->pluck("idendereco");
+            $agencia = DB::table('agencia_has_endereco')->where('endereco_idendereco', $endereco)->pluck("agencia_cnpj");
+            $agencialist = DB::table('agencia')->where('cnpj', $agencia)->pluck("razao_social");
+            return response()->json($agencialist);
+        }
     }
 
     /**
