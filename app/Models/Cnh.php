@@ -30,6 +30,7 @@ class Cnh extends Eloquent
 {
 	protected $table = 'cnh';
 	public $incrementing = false;
+	protected $primaryKey = 'numero_cnh';
 
 	protected $casts = [
 		'numero_cnh' => 'int',
@@ -42,11 +43,13 @@ class Cnh extends Eloquent
 	];
 
 	protected $fillable = [
+		'numero_cnh',
 		'numero_registro',
 		'data_validade',
 		'rg',
 		'data_nascimento',
-		'uf'
+		'uf',
+		'users_cpf'
 	];
 
 	public function user()

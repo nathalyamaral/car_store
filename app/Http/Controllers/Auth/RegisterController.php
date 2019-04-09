@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use App\Models\Cnh;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -69,12 +70,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $sucessoUser = User::create([
             'cpf' => $data['cpf'],
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        $sucessoCnh = Cnh::create([
+            'numero_cnh' => $data['numeroCnh'],
+            'numero_registro' => $data['registro'],
+		    'data_validade' => $data['validade'],
+		    'rg' => $data['rg'],
+		    'data_nascimento' => $data['nascimento'], 
+            'uf' => $data['uf'],
+            'users_cpf' => $data['cpf']
+        ]);
+        return $sucessoUser;
     }
 
     protected function existsCpf(Request $request){

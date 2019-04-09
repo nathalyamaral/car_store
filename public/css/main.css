@@ -2634,14 +2634,6 @@ only screen and (min-resolution:192dpi) and (max-width:1024px) {
 	    line-height: 35px;
 	    width: 100%;
 	    height: 35px;
-	    padding: 15px;
-	    border: 1px solid #eee
-	}
-
-	@media (max-width:991px) {
-	    .contact-content .send-message input {
-	        margin-bottom: 30px
-	    }
 	}
 
 	.contact-content .send-message input:focus {
