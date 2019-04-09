@@ -16,6 +16,7 @@ class AddForeignKeysToCarroTable extends Migration {
 		{
 			$table->foreign('categoria_idcategoria')->references('idcategoria')->on('categoria')->onUpdate('NO ACTION')->onDelete('NO ACTION');
 			$table->foreign('marca_idmarca')->references('idmarca')->on('marca')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+			$table->foreign('agencia_cnpj')->references('cnpj')->on('agencia')->onUpdate('cascade')->onDelete('NO ACTION');
 		});
 	}
 
@@ -31,6 +32,7 @@ class AddForeignKeysToCarroTable extends Migration {
 		{
 			$table->dropForeign('categoria_idcategoria');
 			$table->dropForeign('marca_idmarca');
+			$table->dropForeign('agencia_cnpj');
 		});
 	}
 

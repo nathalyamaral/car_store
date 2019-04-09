@@ -1,17 +1,14 @@
-
-
 @extends('layouts.app')
 @section('content')
     <h1>Painel de Controle</h1>
 @stop
 
-@slider('content')
     <div class="row">
       <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-black">
           <div class="inner">
-            <!--<h3>{{$agencias}}</h3>-->
+            <!--<h3>{{/*$agencias*/}}</h3>-->
             <p>Agencia Cadastradas</p>
           </div>
           <div class="icon">
@@ -25,7 +22,7 @@
         <!-- small box -->
         <div class="small-box bg-black">
           <div class="inner">
-            <!--<h3>{{$mostra cliente}}</h3>-->
+            <!--<h3> {{/*$mostra cliente*/}}</h3>-->
             <p>Clientes Cadastradas</p>
           </div>
           <div class="icon">
@@ -50,6 +47,3 @@
       </div>
 
     </div>
-      
-      
-@endslider

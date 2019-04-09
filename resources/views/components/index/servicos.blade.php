@@ -5,7 +5,7 @@
 			<div class="service-item wow fadeIn" data-wow-duration="0.75s">
 				<i class="fa fa-car"></i>
 				<div class="text-content">
-					<h6>Sell &amp; Buy Cars</h6>
+					<h6>Venda &amp; compra de carros</h6>
 					<p>Irony actually meditation, ocupy mumble core wayfarers organic pickled.</p>
 				</div>
 			</div>

@@ -65,7 +65,8 @@ class Carro extends Eloquent
 		'valor_diaria',
 		'status',
 		'marca_idmarca',
-		'categoria_idcategoria'
+		'categoria_idcategoria',
+		'agencia_cnpj'
 	];
 
 	public function categorium()
@@ -88,4 +89,14 @@ class Carro extends Eloquent
 	{
 		return $this->hasMany(\App\Models\Locacao::class, 'carro_placa');
 	}
+
+	public function agencia()
+	{
+		return $this->belongsTo(\App\Models\Agencia::class, 'agencia_cnpj');
+	}
+
+	public static function getCarroAgencia($agencia_cnpj = 0){
+		$value = DB::table('carro')->where('agencia_cnpj', $agencia_cnpj)->get();
+		return $value;
+   }
 }

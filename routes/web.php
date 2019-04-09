@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/teste', function () {
+    return view('/teste');
+});
+Route::get('/carros', '\CarroController@carros');
+
 Route::get('/verifica_cpf/{cpf}', 'Auth\RegisterController@existsCpf');
 Route::get('/verifica_email/{email}', 'Auth\RegisterController@existsEmail');
 Route::resource('/cnh', 'CnhController');
