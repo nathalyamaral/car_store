@@ -70,6 +70,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $data['cpf'] = preg_replace("/[^0-9]/", "", $data['cpf']);
         $sucessoUser = User::create([
             'cpf' => $data['cpf'],
             'name' => $data['name'],
