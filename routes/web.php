@@ -18,11 +18,13 @@ Route::get('/', function () {
 Route::get('/teste', function () {
     return view('/teste');
 });
-Route::get('/carros', '\CarroController@carros');
+//Route::get('/carros', '\CarroController@carros');
 
 Route::get('/verifica_cpf/{cpf}', 'Auth\RegisterController@existsCpf');
 Route::get('/verifica_email/{email}', 'Auth\RegisterController@existsEmail');
-Route::resource('/cnh', 'CnhController');
+Route::get('/verifica_cnh/{cnh}', 'Auth\RegisterController@existsCnh');
+Route::get('/verifica_registro/{registro}', 'Auth\RegisterController@existsRegistro');
+
 
 Auth::routes();
 

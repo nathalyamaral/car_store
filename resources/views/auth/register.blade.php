@@ -19,20 +19,9 @@
     </div>
 </div>
 
-<section>
-    <div class="contact-content wow fadeIn" data-wow-delay="0.5s" data-wow-duration="1s">
-        <div class="container">
-            <div class="send-message">
-                <div class="sep-section-heading">
-                    <h2>Preencha o <em>formulario</em></h2>
-                </div>
-                @formregister
-                @endformregister
-            </div>
-        </div>
-    </div>
-</div>
-</section>
+
+@formregister
+@endformregister
 
 @footer
 @endfooter

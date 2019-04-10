@@ -14,8 +14,8 @@ class CreateCnhTable extends Migration {
 	{
 		Schema::create('cnh', function(Blueprint $table)
 		{
-			$table->integer('numero_cnh');
-			$table->integer('numero_registro');
+			$table->string('numero_cnh', 20);
+			$table->string('numero_registro', 20);
 			$table->date('data_validade');
 			$table->string('rg', 30);
 			$table->date('data_nascimento');

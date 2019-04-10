@@ -12,7 +12,6 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script type="text/javascript" href="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="js/jquery-1.11.0.min.js"></script>
 	<script src="js/jquery.steps.js"></script>
     <script src="js/jquery.validate-1.19.0.js"></script>
@@ -43,6 +42,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+    @media(min-width: 768px) {
+  .field-label-responsive {
+    padding-top: .5rem;
+    text-align: right;
+  }
+}
+    </style>
 
 </head>
     
