@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Carro;
 use App\Models\Agencia;
 use Illuminate\Http\Request;
+use DB;
 
 class CarroController extends Controller
 {
@@ -15,8 +16,9 @@ class CarroController extends Controller
      */
 
     public function carros(Request $request){
-        $carros =  Carro::getCarroAgencia($request['agencia_cnpj']);
-        return view('carros', ["agencia" => $request['agencia_cnpj'], "dados" => $carros);
+        $agencia = $request->agencia;
+        $carros = DB::table('carro')->where('agencia_cnpj', $agencia)->get();
+        return view('carros', compact('carros'));
     }
     /**
      * Show the form for creating a new resource.
