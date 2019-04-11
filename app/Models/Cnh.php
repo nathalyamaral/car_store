@@ -8,6 +8,7 @@
 namespace App\Models;
 
 use Reliese\Database\Eloquent\Model as Eloquent;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class Cnh
@@ -32,11 +33,6 @@ class Cnh extends Eloquent
 	public $incrementing = false;
 	protected $primaryKey = 'numero_cnh';
 
-	protected $casts = [
-		'numero_cnh' => 'int',
-		'numero_registro' => 'int'
-	];
-
 	protected $dates = [
 		'data_validade',
 		'data_nascimento'
@@ -55,5 +51,15 @@ class Cnh extends Eloquent
 	public function user()
 	{
 		return $this->belongsTo(\App\Models\User::class, 'users_cpf');
+	}
+
+	public static function existsCnh($cnh)
+    {
+       return DB::table('cnh')->where('numero_cnh', $cnh)->value('numero_cnh');       
+	}
+
+	public static function existsRegistro($registro)
+    {
+       return DB::table('cnh')->where('numero_registro', $registro)->value('numero_registro');       
 	}
 }

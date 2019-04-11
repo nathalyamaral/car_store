@@ -53,12 +53,12 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {   
-        //$data['cpf'] = preg_replace("/[^0-9]/", "", $data['cpf']);
+        $data['cpf'] = preg_replace("/[^0-9]/", "", $data['cpf']);
         return Validator::make($data, [
-            'cpf' => ['required', 'unique:users'],
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            //'cpf' => ['required', 'unique:users'],
+            //'name' => ['required', 'string', 'max:255'],
+            //'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            //'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
     }
 
@@ -70,18 +70,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $data['cpf'] = preg_replace("/[^0-9]/", "", $data['cpf']);
         $sucessoUser = User::create([
             'cpf' => $data['cpf'],
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-        ]);
+        ]);  
+
         $sucessoCnh = Cnh::create([
             'numero_cnh' => $data['numeroCnh'],
             'numero_registro' => $data['registro'],
-		    'data_validade' => $data['validade'],
+		    'data_validade' => date("Y-m-d", strtotime($data['validade'])),
 		    'rg' => $data['rg'],
-		    'data_nascimento' => $data['nascimento'], 
+		    'data_nascimento' => date("Y-m-d", strtotime($data['data_nascimento'])),
             'uf' => $data['uf'],
             'users_cpf' => $data['cpf']
         ]);
@@ -101,6 +103,26 @@ class RegisterController extends Controller
     protected function existsEmail(Request $request){
         $email = $request['email'];
         if(User::existEmail($email) == null){
+            return response()->json(false);
+        }else{
+            return response()->json(true);
+        }    
+
+    }
+
+    protected function existsCnh(Request $request){
+        $cnh = $request['cnh'];
+        if(Cnh::existsCnh($cnh) == null){
+            return response()->json(false);
+        }else{
+            return response()->json(true);
+        }    
+
+    }
+
+    protected function existsRegistro(Request $request){
+        $registro = $request['registro'];
+        if(Cnh::existsRegistro($registro) == null){
             return response()->json(false);
         }else{
             return response()->json(true);
