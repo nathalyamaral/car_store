@@ -2,6 +2,7 @@
 @appview
 @endappview
 
+
 <div class="page-heading wow fadeIn" data-wow-duration="0.5s">
 	<div class="container">
 		<div class="row">
@@ -23,8 +24,14 @@
 	<div class="container">
 		<div class="recent-car-content">
 			<div class="row">
+
+				@foreach($carros as $teste)
+					{{$teste->placa}}
+				@endforeach
+
 				@listacarros
 				@endlistacarros
+
 				@filtro
 				@endfiltro
 			</div>

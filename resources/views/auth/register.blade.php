@@ -9,7 +9,7 @@
                 <div class="heading-content-bg wow fadeIn" data-wow-delay="0.75s" data-wow-duration="1s">
                     <div class="row">
                         <div class="heading-content col-md-12">
-                            <p><a href="index-2.html">Homepage</a> / <em> Contact Us</em></p>
+                            <p><a href="{{ url('/') }}">Homepage</a> / <em> Lista</em> / <em> Carros</em></p>
                             <h2>Cadastro</h2>
                         </div>
                     </div>

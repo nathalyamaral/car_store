@@ -11,6 +11,9 @@ class CategoriaTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('categoria')->insert([
+            'nome' => 'Intermediario',
+            'descricao' => '4 portas, Ar-Condionado, Câmbio Manual'
+        ]);
     }
 }

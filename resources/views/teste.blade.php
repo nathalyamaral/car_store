@@ -1,5 +1,1 @@
-@appview
-@endappview
-
-@painel
-@endpainel
+{{ dd($id) }}

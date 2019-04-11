@@ -15,10 +15,12 @@ class CarroController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function carros(Request $request){
-        $agencia = $request->agencia;
-        $carros = DB::table('carro')->where('agencia_cnpj', $agencia)->get();
-        return view('carros', compact('carros'));
+    public function carros(){
+        $carros = DB::table('carro')->get()->toArray();
+        $id = 'battata';
+        //$categoria = DB::table('categoria')->where('idcategoria', $carros[0]->categoria_idcategoria)->get();
+        //var_dump($carros);
+        return view('carros', compact('carros', 'id'));
     }
     /**
      * Show the form for creating a new resource.

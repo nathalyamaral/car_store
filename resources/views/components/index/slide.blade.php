@@ -9,7 +9,7 @@
 					<h5>MIC CAR TEM AS MELHORES OFERTAS</h5>
 					<h3>Procurando o carro<em> perfeito</em>?</h3>
 					<h6 class="secondary-button">
-						<a href="#">Ver carros <i class="fa fa-car"></i></a>
+						<a href="{{ route('carros')}}">Ver carros <i class="fa fa-car"></i></a>
 					</h6>
 				</div>
 			</div>
@@ -26,7 +26,7 @@
 					<h5>MIC CAR TEM AS MELHORES OFERTAS</h5>
 					<h3>Procurando o carro<em> perfeito</em>?</h3>
 					<h6 class="secondary-button">
-						<a href="#">Ver carros <i class="fa fa-car"></i></a>
+						<a href="{{ route('carros')}}">Ver carros <i class="fa fa-car"></i></a>
 					</h6>
 				</div>
 			</div>
@@ -43,7 +43,7 @@
 					<h5>MIC CAR TEM AS MELHORES OFERTAS</h5>
 					<h3>Procurando o carro<em> perfeito</em>?</h3>
 					<h6 class="secondary-button">
-						<a href="#">Ver carros <i class="fa fa-car"></i></a>
+						<a href="{{ route('carros')}}">Ver carros <i class="fa fa-car"></i></a>
 					</h6>
 				</div>
 			</div>
@@ -61,69 +61,6 @@
 						<div class="item car-item">
 							<div class="thumb-content">
 								<a href="single_car.html"><img src="images/car_item_1.jpg" alt=""></a>
-							</div>
-							<div class="down-content">
-								<a href="single_car.html"><h4>Perfect Sport Car</h4></a>
-								<span>$36.000</span>
-							</div>
-						</div>
-						<div class="item car-item">
-							<div class="thumb-content">
-								<a href="single_car.html"><img src="images/car_item_2.jpg" alt=""></a>
-							</div>
-							<div class="down-content">
-								<a href="single_car.html"><h4>Perfect Sport Car</h4></a>
-								<span>$36.000</span>
-							</div>
-						</div>
-						<div class="item car-item">
-							<div class="thumb-content">
-								<a href="single_car.html"><img src="images/car_item_3.jpg" alt=""></a>
-							</div>
-							<div class="down-content">
-								<a href="single_car.html"><h4>Perfect Sport Car</h4></a>
-								<span>$36.000</span>
-							</div>
-						</div>
-						<div class="item car-item">
-							<div class="thumb-content">
-								<a href="single_car.html"><img src="images/car_item_4.jpg" alt=""></a>
-							</div>
-							<div class="down-content">
-								<a href="single_car.html"><h4>Perfect Sport Car</h4></a>
-								<span>$36.000</span>
-							</div>
-						</div>
-						<div class="item car-item">
-							<div class="thumb-content">
-								<a href="single_car.html"><img src="images/car_item_5.jpg" alt=""></a>
-							</div>
-							<div class="down-content">
-								<a href="single_car.html"><h4>Perfect Sport Car</h4></a>
-								<span>$36.000</span>
-							</div>
-						</div>
-						<div class="item car-item">
-							<div class="thumb-content">
-								<a href="single_car.html"><img src="images/car_item_6.jpg" alt=""></a>
-							</div>
-							<div class="down-content">
-								<a href="single_car.html"><h4>Perfect Sport Car</h4></a>
-								<span>$36.000</span>
-							</div>
-						</div>
-						<div class="item car-item">
-							<div class="thumb-content">
-								<a href="single_car.html"><img src="images/car_item_1.jpg" alt=""></a>
-							</div>
-							<div class="down-content">
-								<a href="single_car.html"><h4>Perfect Sport Car</h4></a>
-								<span>$36.000</span>
-							</div>
-						</div>
-						<div class="item car-item">
-							<div class="thumb-content">
-								<a href="single_car.html"><img src="images/car_item_2.jpg" alt=""></a>
 							</div>
 							<div class="down-content">
 								<a href="single_car.html"><h4>Perfect Sport Car</h4></a>

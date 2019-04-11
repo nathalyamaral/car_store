@@ -11,6 +11,8 @@ class TelefoneTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('telefone')->insert([
+            'numero' => '3232-2061'
+        ]);
     }
 }

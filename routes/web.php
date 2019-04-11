@@ -23,6 +23,7 @@ Route::get('/teste', function () {
     return view('/teste');
 });
 
+
 Route::get('/carros', 'CarroController@carros')->name('carros');
 
 Route::get('/verifica_cpf/{cpf}', 'Auth\RegisterController@existsCpf');
