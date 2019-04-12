@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use App\Models\Cnh;
+use App\Models\Telefone;
+use App\Models\Endereco;
+use App\Models\UserHasTelefone;
+use App\Models\UserHasEndereco;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -76,7 +80,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-        ]);  
+        ]); 
 
         $sucessoCnh = Cnh::create([
             'numero_cnh' => $data['numeroCnh'],
@@ -87,6 +91,30 @@ class RegisterController extends Controller
             'uf' => $data['uf'],
             'users_cpf' => $data['cpf']
         ]);
+
+        $sucessoTelefone = Telefone::create([
+            'numero' => $data['telefone'],
+        ]);
+
+        $sucessoEndereco = Endereco::create([
+            'bairro' => $data['bairro'],
+            'cep' => $data['cep'],
+            'cidade' => $data['cidade'],
+            'estado' => $data['estado'],
+            'numero' => $data['numero'],
+            'logradouro' => $data['logradouro']
+        ]);
+
+        $sucessoHasUT = UserHasTelefone::create([
+            'users_cpf' => $data['cpf'],
+            'telefone_idtelefone' => $sucessoTelefone->idtelefone
+        ]);
+
+        $sucessoHasUE = UserHasEndereco::create([
+            'users_cpf' => $data['cpf'],
+            'endereco_idendereco' => $sucessoEndereco->idendereco
+        ]);
+
         return $sucessoUser;
     }
 
