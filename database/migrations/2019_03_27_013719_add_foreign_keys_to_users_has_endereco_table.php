@@ -14,8 +14,8 @@ class AddForeignKeysToUsersHasEnderecoTable extends Migration {
 	{
 		Schema::table('users_has_endereco', function(Blueprint $table)
 		{
-			$table->foreign('endereco_idendereco')->references('idendereco')->on('endereco')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-			$table->foreign('users_cpf')->references('cpf')->on('users')->onUpdate('cascade')->onDelete('NO ACTION');
+			$table->foreign('endereco_idendereco')->references('idendereco')->on('endereco')->onUpdate('cascade')->onDelete('cascade');
+			$table->foreign('users_cpf')->references('cpf')->on('users')->onUpdate('cascade')->onDelete('cascade');
 		});
 	}
 

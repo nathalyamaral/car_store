@@ -14,9 +14,9 @@ class AddForeignKeysToCarroTable extends Migration {
 	{
 		Schema::table('carro', function(Blueprint $table)
 		{
-			$table->foreign('categoria_idcategoria')->references('idcategoria')->on('categoria')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-			$table->foreign('marca_idmarca')->references('idmarca')->on('marca')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-			$table->foreign('agencia_cnpj')->references('cnpj')->on('agencia')->onUpdate('cascade')->onDelete('NO ACTION');
+			$table->foreign('categoria_idcategoria')->references('idcategoria')->on('categoria')->onUpdate('cascade')->onDelete('cascade');
+			$table->foreign('marca_idmarca')->references('idmarca')->on('marca')->onUpdate('cascade')->onDelete('cascade');
+			$table->foreign('agencia_cnpj')->references('cnpj')->on('agencia')->onUpdate('cascade')->onDelete('cascade');
 		});
 	}
 

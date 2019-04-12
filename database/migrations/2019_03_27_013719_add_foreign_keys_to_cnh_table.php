@@ -14,7 +14,7 @@ class AddForeignKeysToCnhTable extends Migration {
 	{
 		Schema::table('cnh', function(Blueprint $table)
 		{
-			$table->foreign('users_cpf')->references('cpf')->on('users')->onUpdate('cascade')->onDelete('NO ACTION');
+			$table->foreign('users_cpf')->references('cpf')->on('users')->onUpdate('cascade')->onDelete('cascade');
 		});
 	}
 

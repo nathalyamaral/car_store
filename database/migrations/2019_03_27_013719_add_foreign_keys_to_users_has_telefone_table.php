@@ -14,8 +14,8 @@ class AddForeignKeysToUsersHasTelefoneTable extends Migration {
 	{
 		Schema::table('users_has_telefone', function(Blueprint $table)
 		{
-			$table->foreign('telefone_idtelefone')->references('idtelefone')->on('telefone')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-			$table->foreign('users_cpf')->references('cpf')->on('users')->onUpdate('cascade')->onDelete('NO ACTION');
+			$table->foreign('telefone_idtelefone')->references('idtelefone')->on('telefone')->onUpdate('cascade')->onDelete('cascade');
+			$table->foreign('users_cpf')->references('cpf')->on('users')->onUpdate('cascade')->onDelete('cascade');
 		});
 	}
 

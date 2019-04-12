@@ -14,8 +14,8 @@ class AddForeignKeysToAgenciaHasTelefoneTable extends Migration {
 	{
 		Schema::table('agencia_has_telefone', function(Blueprint $table)
 		{
-			$table->foreign('agencia_cnpj')->references('cnpj')->on('agencia')->onUpdate('cascade')->onDelete('NO ACTION');
-			$table->foreign('telefone_idtelefone')->references('idtelefone')->on('telefone')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+			$table->foreign('agencia_cnpj')->references('cnpj')->on('agencia')->onUpdate('cascade')->onDelete('cascade');
+			$table->foreign('telefone_idtelefone')->references('idtelefone')->on('telefone')->onUpdate('cascade')->onDelete('cascade');
 		});
 	}
 

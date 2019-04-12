@@ -14,8 +14,8 @@ class AddForeignKeysToAgenciaHasEnderecoTable extends Migration {
 	{
 		Schema::table('agencia_has_endereco', function(Blueprint $table)
 		{
-			$table->foreign('agencia_cnpj')->references('cnpj')->on('agencia')->onUpdate('cascade')->onDelete('NO ACTION');
-			$table->foreign('endereco_idendereco')->references('idendereco')->on('endereco')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+			$table->foreign('agencia_cnpj')->references('cnpj')->on('agencia')->onUpdate('cascade')->onDelete('cascade');
+			$table->foreign('endereco_idendereco')->references('idendereco')->on('endereco')->onUpdate('cascade')->onDelete('cascade');
 		});
 	}
 
