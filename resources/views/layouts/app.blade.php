@@ -9,46 +9,28 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Car') }}</title>
+    <title>Mic Car</title>
 
-    <!-- Scripts -->
+    <link rel="stylesheet" href="{{ URL::asset('css/app.css')}}">
     <script src="js/jquery-1.11.0.min.js"></script>
-	<script src="js/jquery.steps.js"></script>
+    <script src="js/sliderpro.min.js"></script>
+    <script src="js/slick.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.animation.js"></script>
     <script src="js/jquery.validate-1.19.0.js"></script>
     <script src="js/additional-methods.js"></script>
-    
-	<!-- Slider Pro Js -->
-	<script src="js/sliderpro.min.js"></script>
-
-	<!-- Slick Slider Js -->
-	<script src="js/slick.js"></script>
-
-	<!-- Owl Carousel Js -->
-    <script src="js/owl.carousel.min.js"></script>
-
-	<!-- Boostrap Js -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Boostrap Js -->
-    <script src="js/wow.animation.js"></script>
-
-	<!-- Custom Js -->
-    <script src="js/custom.js"></script>
-
-    <!-- Mask Js -->
     <script src="js/jquery.mask.min.js"></script>
     <script src="js/cidade_estado.js"></script>
-    <!-- Fonts -->
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
     <style>
-    @media(min-width: 768px) {
-  .field-label-responsive {
-    padding-top: .5rem;
-    text-align: right;
-  }
-}
+        @media(min-width: 768px) {
+          .field-label-responsive {
+            padding-top: .5rem;
+            text-align: right;
+            }
+        }
     </style>
 
 </head>

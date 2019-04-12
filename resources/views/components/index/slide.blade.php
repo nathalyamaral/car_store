@@ -1,3 +1,4 @@
+<script src="js/custom.js"></script>
 
 <div class="Modern-Slider">
 	<!-- Slide 1 -->
@@ -9,7 +10,7 @@
 					<h5>MIC CAR TEM AS MELHORES OFERTAS</h5>
 					<h3>Procurando o carro<em> perfeito</em>?</h3>
 					<h6 class="secondary-button">
-						<a href="{{ route('carros')}}">Ver carros <i class="fa fa-car"></i></a>
+						<a href="{{ route('carros')}}">Ver grupo de carros <i class="fa fa-car"></i></a>
 					</h6>
 				</div>
 			</div>
@@ -26,7 +27,7 @@
 					<h5>MIC CAR TEM AS MELHORES OFERTAS</h5>
 					<h3>Procurando o carro<em> perfeito</em>?</h3>
 					<h6 class="secondary-button">
-						<a href="{{ route('carros')}}">Ver carros <i class="fa fa-car"></i></a>
+						<a href="{{ route('carros')}}">Ver grupo de carros <i class="fa fa-car"></i></a>
 					</h6>
 				</div>
 			</div>
@@ -43,7 +44,7 @@
 					<h5>MIC CAR TEM AS MELHORES OFERTAS</h5>
 					<h3>Procurando o carro<em> perfeito</em>?</h3>
 					<h6 class="secondary-button">
-						<a href="{{ route('carros')}}">Ver carros <i class="fa fa-car"></i></a>
+						<a href="{{ route('carros')}}">Ver grupo de carros <i class="fa fa-car"></i></a>
 					</h6>
 				</div>
 			</div>

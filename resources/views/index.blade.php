@@ -8,11 +8,9 @@
 <section>
 	<div class="features-search-section">
 		<div class="container">
-			<div class="row">
+			<div class="row" align="center">
 				@servicos
 				@endservicos
-				@pesquisarapida
-				@endpesquisarapida
 			</div>
 		</div>
 	</div>

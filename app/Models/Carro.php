@@ -6,7 +6,7 @@
  */
 
 namespace App\Models;
-
+a
 use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**

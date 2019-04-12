@@ -41,5 +41,6 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('components.adm.painel', 'painel');
         Blade::component('components.carros.filtro_avancado', 'filtro');
         Blade::component('components.carros.listarcarros', 'listacarros');
+        Blade::component('components.redeagencia.pesquisaagencia', 'pesquisaagencia');
     }
 }

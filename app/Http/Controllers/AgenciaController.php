@@ -23,12 +23,20 @@ class AgenciaController extends Controller
         return view('index', compact('agencia'));
     }
 
+    public function index2()
+    {
+        $agencia = DB::table('agencia')->pluck("razao_social","cnpj")->all();
+        return view('redeagencia', compact('agencia'));
+    }
+
     public function select(Request $request){
-        if($request->ajax()){
-            $endereco = DB::table('endereco')->where('cidade', $request->cidades)->pluck("idendereco");
+        $endereco = DB::table('endereco')->where('cidade', $request->cidades)->pluck("idendereco");
+        if (sizeof($endereco) != 0){
             $agencia = DB::table('agencia_has_endereco')->where('endereco_idendereco', $endereco)->pluck("agencia_cnpj");
-            $agencialist = DB::table('agencia')->where('cnpj', $agencia)->pluck("razao_social");
+            $agencialist = DB::table('agencia')->where('cnpj', $agencia)->pluck("razao_social", "cnpj");
             return response()->json($agencialist);
+        }else{
+            return response()->json("erro");
         }
     }
 

@@ -1,13 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
-
-@import url('animated.css');
-@import url('main.css');
 @import url('bootstrap.min.css');
-@import url('flaticon.css');
 @import url('font-awesome.min.css');
-@import url('owl-carousel.css');
+@import url('main.css');
 @import url('sliderPro.css');
-@import url('step-form-register.css');
+@import url('owl-carousel.css');
+@import url('flaticon.css');
+@import url('animated.css');
 
 
 .footeer{

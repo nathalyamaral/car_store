@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="heading-content col-md-12">
                             <p><a href="index-2.html">Homepage</a> / <em> Contact Us</em></p>
-                            <h2>Login</h2>
+                            <h2><em>Login</em></h2>
                         </div>
                     </div>
                 </div>
@@ -19,12 +19,12 @@
 </div>
 
 <section>
-<font color="white">
+
     <div class="container">
     <br><br>
     <div class="contact-content">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <div class="send-message">
                         <div class="sep-section-heading">
                             <h2><em>Login</em></h2>
@@ -36,7 +36,7 @@
             </div>
         </div>
     </div>
-</font>
+
 </section>
 
 @footer
