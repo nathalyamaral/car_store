@@ -15,6 +15,14 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::prefix('gestaofrota')->group(function () {
+    Route::redirect('/', '/');
+
+    Route::get('teste', function () {
+        return view('teste');
+    });
+});
+
 Route::get('/', 'AgenciaController@index');
 
 Route::get('select', 'AgenciaController@select');
