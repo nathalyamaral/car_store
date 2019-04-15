@@ -12,7 +12,14 @@
 				<li><a href="{{ route('redeagencia')}}">Rede de agências</a></li>
 				<li><a href="{{ route('login') }}">Login</a></li>
 				@if (Route::has('register'))
-				<li><a href="{{ route('register') }}">Register</a></li>
+				
+				<li class="dropdown">
+					<a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registro</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<li><a href="{{ route('register') }}">USUÁRIO</a></li>
+					<li><a href="{{ route('registerAgencia') }}">AGÊNCIA</a></li>
+					</ul>
+				</li>
 				@endif
 				@else
 				<li><a href="#">Cadastrar Carros</a></li>
