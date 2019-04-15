@@ -15,9 +15,22 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::prefix('agencia')->group(function () {
-    Route::get('register', 'Auth\RegisterController@showRegistrationFormAgencia')->name('registerAgencia');
+//Route::get('login', 'Auth\LoginController@showLoginForm');
+//Route::get('login', 'Auth\LoginController@showLoginForm');
+
+Route::group(['middleware'=>['web']], function(){
+    Route::prefix('agencia')->group(function () {
+        Route::get('register', 'Auth\RegisterController@showRegistrationFormAgencia')->name('registerAgencia');
+        /*Route::group(['middleware'=>['auth']], function(){
+            Route::get('dashboard', 'DashboardController@index')->name('DashboardIndex');
+        });
+        */
+    });
 });
+
+
+
+
 
 Route::get('/', 'AgenciaController@index');
 
@@ -37,7 +50,6 @@ Route::get('/verifica_cnpj/{cnpj}', 'Auth\RegisterController@existsCnpj');
 Auth::routes();
 
 Route::group(['middleware'=>['web', 'auth']], function(){
-	
     Route::get('/home', 'HomeController@index')->name('home');
     Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 });
