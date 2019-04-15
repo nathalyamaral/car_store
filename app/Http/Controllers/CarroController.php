@@ -24,8 +24,8 @@ class CarroController extends Controller
             $imagensHas = DB::table('carro_has_imagem')->where('carro_placa', $carros[0]->placa)->get()->toArray();
             $imagens =  DB::table('imagem')->get()->toArray();
             return view('grupocarros', compact('carros', 'categoria', 'marca', 'imagensHas', 'imagens'));
-        }else if(sizeof($carros == 0)){
-            return view('grupocarros');
+        }else {
+            return view('redeagencia');
         }
     }
 
