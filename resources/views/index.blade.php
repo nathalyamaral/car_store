@@ -31,8 +31,7 @@
 	<div class="testimonials">
 		<div class="container">						 
 			<div id="owl-testimonials" class="owl-carousel owl-theme">
-				@depoimentos
-				@enddepoimentos
+				
 			</div>
 		</div>
 	</div>

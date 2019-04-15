@@ -69,7 +69,7 @@
 			</div>
 			<div class="col-md-12">
 				<div class="sub-footer">
-					<p>Copyright 2019. All rights reserved by: <a href="#">Cocotemplates</a></p>
+					<p>Copyright 2019. All rights reserved by: <a href="#">Adler</a></p>
 				</div>
 			</div>
 		</div>
