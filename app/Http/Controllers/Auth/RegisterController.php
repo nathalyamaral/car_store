@@ -8,6 +8,9 @@ use App\Models\Telefone;
 use App\Models\Endereco;
 use App\Models\UserHasTelefone;
 use App\Models\UserHasEndereco;
+use App\Models\Agencia;
+use App\Models\AgenciaHasEndereco;
+use App\Models\AgenciaHasTelefone;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -49,6 +52,10 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function showRegistrationFormAgencia(){
+        return view('registeraegencia');
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -80,21 +87,51 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-        ]); 
-
-        $sucessoCnh = Cnh::create([
-            'numero_cnh' => $data['numeroCnh'],
-            'numero_registro' => $data['registro'],
-		    'data_validade' => date("Y-m-d", strtotime($data['validade'])),
-		    'rg' => $data['rg'],
-		    'data_nascimento' => date("Y-m-d", strtotime($data['data_nascimento'])),
-            'uf' => $data['uf'],
-            'users_cpf' => $data['cpf']
         ]);
+        
+        if(array_key_exists('numeroCnh', $data)){
+            $sucessoCnh = Cnh::create([
+                'numero_cnh' => $data['numeroCnh'],
+                'numero_registro' => $data['registro'],
+                'data_validade' => date("Y-m-d", strtotime($data['validade'])),
+                'rg' => $data['rg'],
+                'data_nascimento' => date("Y-m-d", strtotime($data['data_nascimento'])),
+                'uf' => $data['uf'],
+                'users_cpf' => $data['cpf']
+            ]);
+        }else if(array_key_exists('cnpj', $data)){
+            $data['cnpj'] = trim($data['cnpj']);
+            $data['cnpj'] = str_replace(".", "", $data['cnpj']);
+            $data['cnpj'] = str_replace(",", "", $data['cnpj']);
+            $data['cnpj'] = str_replace("-", "", $data['cnpj']);
+            $data['cnpj'] = str_replace("/", "", $data['cnpj']);
+            
+            $sucessoCnpj = Agencia::create([
+                'cnpj' => $data['cnpj'],
+                'razao_social' => $data['razao_social'],
+                'users_cpf' => $data['cpf']
+            ]);
+
+            $sucessoTelefoneAgencia = Telefone::create([
+                'numero' => $data['telefoneAgencia'],
+            ]);
+
+            $sucessoHasAT = AgenciaHasTelefone::create([
+                'agencia_cnpj' => $data['cnpj'],
+                'telefone_idtelefone' => $sucessoTelefoneAgencia->idtelefone
+            ]);
+        }
+
 
         $sucessoTelefone = Telefone::create([
             'numero' => $data['telefone'],
         ]);
+
+        $sucessoHasUT = UserHasTelefone::create([
+            'users_cpf' => $data['cpf'],
+            'telefone_idtelefone' => $sucessoTelefone->idtelefone
+        ]);
+
 
         $sucessoEndereco = Endereco::create([
             'bairro' => $data['bairro'],
@@ -105,15 +142,17 @@ class RegisterController extends Controller
             'logradouro' => $data['logradouro']
         ]);
 
-        $sucessoHasUT = UserHasTelefone::create([
-            'users_cpf' => $data['cpf'],
-            'telefone_idtelefone' => $sucessoTelefone->idtelefone
-        ]);
-
-        $sucessoHasUE = UserHasEndereco::create([
-            'users_cpf' => $data['cpf'],
-            'endereco_idendereco' => $sucessoEndereco->idendereco
-        ]);
+        if(array_key_exists('cnpj', $data)){
+            $sucessoHasAE = AgenciaHasEndereco::create([
+                'agencia_cnpj' => $data['cnpj'],
+                'endereco_idendereco' => $sucessoEndereco->idendereco
+            ]);   
+        }else{
+            $sucessoHasUE = UserHasEndereco::create([
+                'users_cpf' => $data['cpf'],
+                'endereco_idendereco' => $sucessoEndereco->idendereco
+            ]);
+        }
 
         return $sucessoUser;
     }
@@ -151,6 +190,16 @@ class RegisterController extends Controller
     protected function existsRegistro(Request $request){
         $registro = $request['registro'];
         if(Cnh::existsRegistro($registro) == null){
+            return response()->json(false);
+        }else{
+            return response()->json(true);
+        }    
+
+    }
+
+    protected function existsCnpj(Request $request){
+        $cnpj = $request['cnpj'];
+        if(Agencia::existsCnpj($cnpj) == null){
             return response()->json(false);
         }else{
             return response()->json(true);

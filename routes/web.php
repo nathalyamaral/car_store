@@ -15,12 +15,8 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::prefix('gestaofrota')->group(function () {
-    Route::redirect('/', '/');
-
-    Route::get('teste', function () {
-        return view('teste');
-    });
+Route::prefix('agencia')->group(function () {
+    Route::get('register', 'Auth\RegisterController@showRegistrationFormAgencia')->name('registerAgencia');
 });
 
 Route::get('/', 'AgenciaController@index');
@@ -35,6 +31,7 @@ Route::get('/verifica_cpf/{cpf}', 'Auth\RegisterController@existsCpf');
 Route::get('/verifica_email/{email}', 'Auth\RegisterController@existsEmail');
 Route::get('/verifica_cnh/{cnh}', 'Auth\RegisterController@existsCnh');
 Route::get('/verifica_registro/{registro}', 'Auth\RegisterController@existsRegistro');
+Route::get('/verifica_cnpj/{cnpj}', 'Auth\RegisterController@existsCnpj');
 
 
 Auth::routes();

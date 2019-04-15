@@ -423,13 +423,13 @@ jQuery.validator.addMethod("verificaCPF", function(value, element) {
 		a[10] = 11-x; 
 	}
 	if ((cpf.charAt(9) != a[9]) || (cpf.charAt(10) != a[10]) || cpf.match(expReg)) 
-		return false;
-		
+	return false;
+	
 	return true;
 }, "CPF inválido");
 
 // Método para vildar o cnpj
-jQuery.validator.addMethod("cnpj", function (cnpj, element) {
+jQuery.validator.addMethod("verificaCNPJ", function (cnpj, element) {
 	cnpj = jQuery.trim(cnpj);
 	
 	// DEIXA APENAS OS NÚMEROS
@@ -523,12 +523,19 @@ jQuery.validator.addMethod("email", function (value, element) {
 
 jQuery.validator.addMethod("unique", function(value, element, params) {
 	var isUnique = false;
-
+	
 	if(params[0] === "cpf"){
 		value = jQuery.trim(value);
 		value = value.replace('.','');
 		value = value.replace('.','');
 		value = value.replace('-','');
+	}
+	
+	if(params[0] === "cnpj"){
+		value = value.replace('/', '');
+		value = value.replace('.', '');
+		value = value.replace('.', '');
+		value = value.replace('-', '');
 	}
 	
 	$.ajax({
@@ -542,7 +549,7 @@ jQuery.validator.addMethod("unique", function(value, element, params) {
 	});
 	
 	if(!isUnique) 
-		return false;
+	return false;
 	
 	return true;
 	

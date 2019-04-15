@@ -49,12 +49,12 @@
 					<div class="our-gallery">
 						<h2>Our Gallery</h2>
 						<ul>
-							<li><a href="#"><img src="images/gallery_01.jpg" alt=""></a></li>
-							<li><a href="#"><img src="images/gallery_02.jpg" alt=""></a></li>
-							<li><a href="#"><img src="images/gallery_03.jpg" alt=""></a></li>
-							<li><a href="#"><img src="images/gallery_04.jpg" alt=""></a></li>
-							<li><a href="#"><img src="images/gallery_05.jpg" alt=""></a></li>
-							<li><a href="#"><img src="images/gallery_06.jpg" alt=""></a></li>
+							<li><a href="#"><img src="{{ asset('images/gallery_01.jpg') }}" alt=""></a></li>
+							<li><a href="#"><img src="{{ asset('images/gallery_02.jpg') }}" alt=""></a></li>
+							<li><a href="#"><img src="{{ asset('images/gallery_03.jpg') }}" alt=""></a></li>
+							<li><a href="#"><img src="{{ asset('images/gallery_04.jpg') }}" alt=""></a></li>
+							<li><a href="#"><img src="{{ asset('images/gallery_05.jpg') }}" alt=""></a></li>
+							<li><a href="#"><img src="{{ asset('images/gallery_06.jpg') }}" alt=""></a></li>
 						</ul>
 					</div>
 				</div>
