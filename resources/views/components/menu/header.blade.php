@@ -8,7 +8,7 @@
 			<ul>
 				<li class='active'><a href="{{ url('/') }}">Homepage</a></li>
 				@if (Auth::guest())
-				<li><a href="#">Grupo de Carros</a></li>
+				<li><a href="{{ route('grupocarros')}}">Grupo de Carros</a></li>
 				<li><a href="{{ route('redeagencia')}}">Rede de agências</a></li>
 				<li><a href="{{ route('login') }}">Login</a></li>
 				@if (Route::has('register'))

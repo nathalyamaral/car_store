@@ -4,12 +4,12 @@
 		@foreach($carros as $carro)
 
 		<?php 
-	
+			
 			$tam = sizeof($imagensHas) - 1;
+			$imagenscarro = array();
+			for($i = 0; $i < sizeof($imagensHas); $i++){
 
-			for($i = 0; $i < sizeof($imagens); $i++){
 				$n = strcmp($carro->placa, $imagensHas[0]->carro_placa);
-				$imagenscarro = array();
 				if ( $n == 0){
 					if($imagensHas[$tam-$i]->imagem_idimagem == $imagens[$i]->idimagem){
 						$imagenscarro = $imagens;
@@ -18,7 +18,8 @@
 					$imagenscarro = array();
 				}
 				if($imagenscarro != null){
-					$imagem = $imagenscarro[0]->imagem;
+					$imagem = $imagenscarro[$i]->imagem;
+					
 				}
 			} 
 			
@@ -38,7 +39,7 @@
 						</div>
 					</div>
 						<div class="down-content">
-							<a href="single_car.html"><h4>{{$carro->modelo}}</h4></a>
+							<a href="{{ route('SingleCar', $carro->placa) }}"><h4>{{$carro->modelo}}</h4></a>
 							<span>R${{$carro->valor_diaria}}.00</span>
 							<div class="line-dec"></div>
 							<p>{{$carro->descricao}}. <br>
@@ -55,7 +56,7 @@
 						</div>
 				</div>
 			</div>
-			<?php $imagem = ''; ?>
+			<?php $imagem = '';  ?>
 			<input type="hidden" name="placa" id="placa" value="{{$carro->placa}}">
 		@endforeach
 		<div class="col-md-12">

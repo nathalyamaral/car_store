@@ -22,6 +22,7 @@ Route::prefix('agencia')->group(function () {
 Route::get('select', 'AgenciaController@select');
 
 Route::get('/carros', 'CarroController@carros')->name('carros');
+Route::get('/grupocarros', 'CarroController@grupocarros')->name('grupocarros');
 Route::get('singleCar/{placa}',['as' => 'SingleCar', 'uses' => 'CarroController@singleCar']);
 Route::get('/redeagencia', 'AgenciaController@index2')->name('redeagencia');
 
