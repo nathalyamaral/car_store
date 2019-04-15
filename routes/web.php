@@ -29,15 +29,11 @@ Route::group(['middleware'=>['web']], function(){
 });
 
 
-
-
-
-Route::get('/', 'AgenciaController@index');
-
 Route::get('select', 'AgenciaController@select');
 
 Route::get('/carros', 'CarroController@carros')->name('carros');
-Route::get('/single', 'CarroController@singleCar')->name('single');
+Route::get('/grupocarros', 'CarroController@grupocarros')->name('grupocarros');
+Route::get('singleCar/{placa}',['as' => 'SingleCar', 'uses' => 'CarroController@singleCar']);
 Route::get('/redeagencia', 'AgenciaController@index2')->name('redeagencia');
 
 Route::get('/verifica_cpf/{cpf}', 'Auth\RegisterController@existsCpf');
