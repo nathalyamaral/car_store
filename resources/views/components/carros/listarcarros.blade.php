@@ -2,25 +2,39 @@
 <div class="col-md-8">
 	<div class="row">
 		@foreach($carros as $carro)
+
 		<?php 
+	
 			$tam = sizeof($imagensHas) - 1;
-		
+
 			for($i = 0; $i < sizeof($imagens); $i++){
-				if($imagensHas[$tam-$i] == $imagens[$i]->idimagem) {
-					$imagenscarro[$i] = $imagens;
+				$n = strcmp($carro->placa, $imagensHas[0]->carro_placa);
+				$imagenscarro = array();
+				if ( $n == 0){
+					if($imagensHas[$tam-$i]->imagem_idimagem == $imagens[$i]->idimagem){
+						$imagenscarro = $imagens;
+					}
+				}else{
+					$imagenscarro = array();
+				}
+				if($imagenscarro != null){
+					$imagem = $imagenscarro[0]->imagem;
 				}
 			} 
+			
+			if ($marca[0]->idmarca == $carro->marca_idmarca) {
+				$marca1 = $marca[0]->nome;
+			}
 		?>
-
-
+		
 			<div class="col-md-6">
 				<div class="car-item">
 					<div class="thumb-content">
 						<div class="car-banner">
-							<a href="single_car.html">For Rent</a>
+							<a href="{{ route('single')}}">{{$marca1}}</a>
 						</div>
 						<div class="thumb-inner">
-							<a href="single_car.html"><img src="images/{{$imagenscarro[2][0]->imagem}}" alt=""></a>
+							<a href="{{ route('single')}}"><img src="images/{{$imagem}}" alt=""></a>
 						</div>
 					</div>
 						<div class="down-content">
@@ -41,6 +55,8 @@
 						</div>
 				</div>
 			</div>
+			<?php $imagem = ''; ?>
+			<input type="hidden" name="placa" id="placa" value="{{$carro->placa}}">
 		@endforeach
 		<div class="col-md-12">
 			<div class="page-numbers">

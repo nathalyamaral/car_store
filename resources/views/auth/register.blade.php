@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="heading-content col-md-12">
                             <p><a href="{{ url('/') }}">Homepage</a> / <em> Lista</em> / <em> Carros</em></p>
-                            <h2>Cadastro</h2>
+                            <h2><em>Cadastro</em></h2>
                         </div>
                     </div>
                 </div>

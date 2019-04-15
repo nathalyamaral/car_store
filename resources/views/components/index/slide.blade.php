@@ -53,7 +53,7 @@
 	<!-- // Slide 3 -->
 </div>
 
-<section class="top-slider-features wow fadeIn" data-wow-duration="1.5s">
+<!--<section class="top-slider-features wow fadeIn" data-wow-duration="1.5s">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -73,7 +73,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> --->
 
 <!--@footer
 @endfooter-->
