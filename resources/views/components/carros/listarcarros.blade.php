@@ -31,10 +31,10 @@
 				<div class="car-item">
 					<div class="thumb-content">
 						<div class="car-banner">
-							<a href="{{ route('single')}}">{{$marca1}}</a>
+							<a href="{{ route('SingleCar', $carro->placa) }}">{{$marca1}}</a>
 						</div>
 						<div class="thumb-inner">
-							<a href="{{ route('single')}}"><img src="images/{{$imagem}}" alt=""></a>
+							<a href="{{ route('SingleCar', $carro->placa) }}"><img src="images/{{$imagem}}" alt=""></a>
 						</div>
 					</div>
 						<div class="down-content">
@@ -71,5 +71,6 @@
 				</div>
 			</div>
 		</div>
+	</form>
 	</div>
 </div>

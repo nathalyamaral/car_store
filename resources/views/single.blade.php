@@ -22,10 +22,10 @@
 	<div class="container">
 		<div class="recent-car-content">
 			<div class="row">
-				<div class="col-md-6">
-					@singlecar
+				
+					@singlecar(['carros' => $carros, 'categoria' => $categoria, 'marca' => $marca, 'imagensHas' => $imagensHas, 'imagens' => $imagens])
 					@endsinglecar
-				</div>
+				
 			</div>
 		</div>
 	</div>
