@@ -18,21 +18,22 @@
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 					<li><a href="{{ route('register') }}">USUÁRIO</a></li>
 					<li><a href="{{ route('registerAgencia') }}">AGÊNCIA</a></li>
-					</ul>
 				</li>
 				@endif
 				@else
 				<li><a href="#">Cadastrar Carros</a></li>
 				<li><a href="#">Cadastrar Agencia</a></li>
-				<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-					<li><a href="{{ route('logout') }}"
-						onclick="event.preventDefault();
-						document.getElementById('logout-form').submit();">Sair</a></li>
-						@csrf
-					</form>
-
+				<li>
+					<a class="lead" href="{{ route('logout') }}"
+					onclick="event.preventDefault();
+					document.getElementById('logout-form').submit();">
+					Sair</a>
+				</ul>
 					@endguest
 				</ul>
+				<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+					@csrf
+				</form>
 			</div>
 		</div>
 	</div>

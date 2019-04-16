@@ -15,16 +15,15 @@ Route::get('/', function () {
     return view('index');
 });
 
-//Route::get('login', 'Auth\LoginController@showLoginForm');
-//Route::get('login', 'Auth\LoginController@showLoginForm');
+Route::get('login', 'Auth\LoginController@showLoginForm');
+Route::post('login', 'Auth\LoginController@login')->name('login');
 
 Route::group(['middleware'=>['web']], function(){
     Route::prefix('agencia')->group(function () {
         Route::get('register', 'Auth\RegisterController@showRegistrationFormAgencia')->name('registerAgencia');
-        /*Route::group(['middleware'=>['auth']], function(){
+        Route::group(['middleware'=>['auth']], function(){
             Route::get('dashboard', 'DashboardController@index')->name('DashboardIndex');
         });
-        */
     });
 });
 
