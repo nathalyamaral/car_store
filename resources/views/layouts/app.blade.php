@@ -10,7 +10,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Mic Car</title>
-
+    
     <link rel="stylesheet" href="{{ URL::asset('css/app.css')}}">
     <script src="{{ asset('js/jquery-1.11.0.min.js') }}"></script>
     <script src="{{ asset('js/sliderpro.min.js') }}"></script>
@@ -22,7 +22,7 @@
     <script src="{{ asset('js/additional-methods.js') }}"></script>
     <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
     <script src="{{ asset('js/cidade_estado.js') }}"></script>
-
+    <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
     
     <style>
         @media(min-width: 768px) {

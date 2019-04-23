@@ -22,7 +22,8 @@
     "sass-loader": "^7.1.0",
     "vue": "^2.5.17",
     "vue-template-compiler": "^2.6.10",
-    "webpack": "^2.1.0-beta.22"
+    "webpack": "^2.1.0-beta.22",
+    "botman-tinker": "^0.0.1"
   },
   "name": "car_store",
   "description": "Este repositório tem a finalidade de armazenar e auxiliar no desenvolvimento do sistema de aluguel de carros como prova 1 da matéria de LPC do curso de Sistemas de Informação, no 7º semestre, da UFMS-CPAN.",

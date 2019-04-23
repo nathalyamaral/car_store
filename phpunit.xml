@@ -16,6 +16,9 @@
         <testsuite name="Feature">
             <directory suffix="Test.php">./tests/Feature</directory>
         </testsuite>
+         <testsuite name="BotMan">
+            <directory suffix="Test.php">./tests/BotMan</directory>
+        </testsuite>
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
