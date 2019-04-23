@@ -179,10 +179,7 @@ return [
         Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
         LaravelLegends\PtBrValidator\ValidatorProvider::class,
         Reliese\Coders\CodersServiceProvider::class,
-        App\Providers\BotMan\DriverServiceProvider::class,
-        BotMan\Studio\Providers\DriverServiceProvider::class,
-        BotMan\BotMan\BotManServiceProvider::class,
-        BotMan\Studio\Providers\StudioServiceProvider::class,
+
     ],
 
     /*
